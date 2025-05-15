@@ -1,0 +1,7 @@
+Ejericio para domingo
+
+Restringir 2 nodos cercanos para evitar movimiento de cuerpo rigido.
+
+Comandos gmsh:
+
+Tools -> options -> mesh -> recombine all triangle meshes (allquads) -> ajustar element size factor 
