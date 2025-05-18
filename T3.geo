@@ -63,18 +63,23 @@ Line(112118) = {112,118};
 Line Loop(1) = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 
 // Creo superficies
-Plane Surface(1) = {1};
+Plane Surface(1) = {1}; //Hormigon
 
 // Grupos fisicos
 Physical Surface(1) = {1};
 
 // Condiciones de borde
 Physical Line("F1") = {7};
-Physical Line("F2") = {5};
+Physical Line("F2") = {8};
+Physical Line("F1_2") = {15};
+Physical Line("F2_2") = {16};
 Physical Point(8) = {8};
 Physical Point(3) = {3};
 
 // Crear curvas transfinitas
+
+m = 15;
+
 l1 = 10;
 l2 = 10;
 l3 = 10;
