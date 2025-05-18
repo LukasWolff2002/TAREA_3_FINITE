@@ -5,140 +5,149 @@ import os
 import math
 import sys
 
+from fem.units import mm, cm, m, kgf, N, tf, kN, MPa, GPa
+from fem import Node, Material, Membrane, CST, matrix_extract, matrix_replace, get_nodes_from_physical_id, get_line_load_global_vector
+from fem.quad4 import Quad4
+
+output_path=r'C:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE'  # Path to save the mesh file
+mesh_name='TAREA_3_PARTE_1'  # Name of the mesh file
+output_file=os.path.join(output_path, mesh_name + '.msh')  # Full path to the mesh file
+if not os.path.exists(output_path):
+    os.makedirs(output_path)  # Create the output directory if it doesn't exist
+
+# General model parameters
+
+# Definimos el material
+steel=Material(name='steel',
+             E=200*GPa,
+             nu=0.3,
+             rho=7.85*tf/m**3)
+# Definimos una seccion de la membrana
+Head=Membrane(name='Body',
+              thickness = 2*cm,
+              material=steel)
+
+# Definimos los grupos fisicos de las partes del modelo
+# Map the physical group id to a section
+section_dictionary={201:Head}
+                
+load_dictionary={101:1,
+                 102:2}
+
+restrain_dictionary={102:['r', 'r']}
+
+# Definimos carga de peso propio
+self_weight=[0,0]
+
+# Initialize the Gmsh API and create a new model.
 gmsh.initialize()
-gmsh.model.add("T3")
+gmsh.model.add("TAREA_3_PARTE_1")
 
-gmsh.model.setCurrent("OpenCASCADE")
+###############################################################################
+# PARAMETERS (from your .geo file)
+###############################################################################
 
-# Crear puntos
-points = {
-    1: (0.0, 0.0, 0.0),
-    2: (800.0, 0.0, 0.0),
-    3: (1000.0, 200.0, 0.0),
-    4: (1200.0, 0.0, 0.0),
-    5: (2000.0, 0.0, 0.0),
-    6: (2000.0, 200.0, 0.0),
-    7: (2000.0, 1000.0, 0.0),
-    8: (1200.0, 1000.0, 0.0),
-    9: (1000.0, 1000.0, 0.0),
-    10: (800.0, 1000.0, 0.0),
-    11: (0.0, 1000.0, 0.0),
-    12: (0.0, 200.0, 0.0),
-    111: (400.0, 200.0, 0.0),
-    112: (1600.0, 200.0, 0.0),
-    113: (1600.0, 1000.0, 0.0),
-    114: (400.0, 1000.0, 0.0),
-    115: (800.0, 200.0, 0.0),
-    116: (1200.0, 200.0, 0.0),
-    117: (400.0, 0.0, 0.0),
-    118: (1600.0, 0.0, 0.0),
-}
+# Datos
+cm = 0.01  # asumiendo que 1 unidad = 1 cm
+x_origen = 0
+y_origen = 0
 
-for tag, coords in points.items():
-    gmsh.model.geo.addPoint(*coords, 1.0, tag)
+# ---------------------------------------------------
+# GEOMETRÍA: puntos
+# ---------------------------------------------------
+p1  = gmsh.model.geo.addPoint(x_origen,          y_origen,           0, 1)
+p2  = gmsh.model.geo.addPoint(x_origen+80*cm,    y_origen,           0, 1)
+p3  = gmsh.model.geo.addPoint(x_origen+100*cm,   y_origen+20*cm,     0, 1)
+p4  = gmsh.model.geo.addPoint(x_origen+120*cm,   y_origen,           0, 1)
+p5  = gmsh.model.geo.addPoint(x_origen+200*cm,   y_origen,           0, 1)
+p6  = gmsh.model.geo.addPoint(x_origen+200*cm,   y_origen+20*cm,     0, 1)
+p7  = gmsh.model.geo.addPoint(x_origen+200*cm,   y_origen+100*cm,    0, 1)
+p8  = gmsh.model.geo.addPoint(x_origen+120*cm,   y_origen+100*cm,    0, 1)
+p9  = gmsh.model.geo.addPoint(x_origen+100*cm,   y_origen+100*cm,    0, 1)
+p10 = gmsh.model.geo.addPoint(x_origen+80*cm,    y_origen+100*cm,    0, 1)
+p11 = gmsh.model.geo.addPoint(x_origen,          y_origen+100*cm,    0, 1)
+p12 = gmsh.model.geo.addPoint(x_origen,          y_origen+20*cm,     0, 1)
 
-# Crear líneas exteriores
-lines = {
-    1: (1, 117),
-    2: (117, 2),
-    3: (2, 3),
-    4: (3, 4),
-    5: (4, 118),
-    6: (118, 5),
-    7: (5, 6),
-    8: (6, 7),
-    9: (7, 113),
-    10: (113, 8),
-    11: (8, 9),
-    12: (9, 10),
-    13: (10, 114),
-    14: (114, 11),
-    15: (11, 12),
-    16: (12, 1),
-}
+# ---------------------------------------------------
+# GEOMETRÍA: líneas
+# ---------------------------------------------------
+l1  = gmsh.model.geo.addLine(p1,  p2)
+l2  = gmsh.model.geo.addLine(p2,  p3)   # lado izquierdo del notch
+l3  = gmsh.model.geo.addLine(p3,  p4)   # lado derecho del notch
+l4  = gmsh.model.geo.addLine(p4,  p5)
+l5  = gmsh.model.geo.addLine(p5,  p6)
+l6  = gmsh.model.geo.addLine(p6,  p7)
+l7  = gmsh.model.geo.addLine(p7,  p8)
+l8  = gmsh.model.geo.addLine(p8,  p9)
+l9  = gmsh.model.geo.addLine(p9,  p10)
+l10 = gmsh.model.geo.addLine(p10, p11)
+l11 = gmsh.model.geo.addLine(p11, p12)
+l12 = gmsh.model.geo.addLine(p12, p1)
 
-for tag, (start, end) in lines.items():
-    gmsh.model.geo.addLine(start, end, tag)
+# ---------------------------------------------------
+# CURVE LOOP & SUPERFICIE
+# ---------------------------------------------------
+loop1    = gmsh.model.geo.addCurveLoop(
+    [l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12]
+)
+surface1 = gmsh.model.geo.addPlaneSurface([loop1])
 
-# Crear líneas interiores
-inner_lines = {
-    12111: (12, 111),
-    111115: (111, 115),
-    1153: (115, 3),
-    3116: (3, 116),
-    116112: (116, 112),
-    1126: (112, 6),
-    114111: (114, 111),
-    10115: (10, 115),
-    93: (9, 3),
-    8116: (8, 116),
-    113112: (113, 112),
-    1152: (115, 2),
-    1164: (116, 4),
-    111117: (111, 117),
-    112118: (112, 118),
-}
+# ---------------------------------------------------
+# MALLADO TRANSFINITO EN CURVAS (con progresión)
+# ---------------------------------------------------
+m = 50
+# Coeficientes de progresión
+coef_notch   = 0.3   # malla más fina en la punta
+coef_exterior = 1.2  # ligera gradación en el contorno exterior
 
-for tag, (start, end) in inner_lines.items():
-    gmsh.model.geo.addLine(start, end, tag)
+# Notch: lados p2→p3 y p3→p4
+for tag in [l2, l3]:
+    gmsh.model.geo.mesh.setTransfiniteCurve(tag, int(1.5*m)+1,
+                                            scheme="Progression",
+                                            coef=coef_notch)
 
-# Crear loop con las líneas exteriores (en orden)
-loop_lines = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-gmsh.model.geo.addCurveLoop(loop_lines, 1)
+# Bordes exteriores largos
+for tag in [l1, l4, l5, l6, l7, l8, l9, l10, l11, l12]:
+    gmsh.model.geo.mesh.setTransfiniteCurve(tag, m+1,
+                                            scheme="Progression",
+                                            coef=coef_exterior)
 
-# Crear superficie plana a partir del loop
-gmsh.model.geo.addPlaneSurface([1], 1)
-
-# Grupos físicos (Physical Surface y Lines)
-gmsh.model.addPhysicalGroup(2, [1], 1)  # superficie física 1
-
-gmsh.model.addPhysicalGroup(1, [7], name="F1")
-gmsh.model.addPhysicalGroup(1, [5], name="F2")
-gmsh.model.addPhysicalGroup(0, [8], 8)
-gmsh.model.addPhysicalGroup(0, [3], 3)
-
-# Curvas transfinita con número de divisiones (igual a los l1, l2, ...)
-transfinite_lines = {
-    (16, 111117): 10,
-    (1, 12111): 10,
-    (111117, 1152): 10,
-    (2, 111115): 10,
-    (1152, 3): 10,
-    (3, 1153): 10,
-    (7, 112118): 10,
-    (6, 1126): 10,
-    (112118, 1164): 10,
-    (5, 116112): 10,
-    (1164, 4): 10,
-    (4, 3116): 10,
-    (15, 114111): 10,
-    (12111, 14): 10,
-    (114111, 10115): 10,
-    (111115, 13): 10,
-    (10115, 93): 10,
-    (1153, 12): 10,
-    (8, 113112): 10,
-    (1126, 9): 10,
-    (113112, 8116): 10,
-    (116112, 10): 10,
-    (8116, 93): 10,
-    (3116, 11): 10,
-}
-
-# Para asignar las curvas transfinite, necesitamos obtener el id real de cada curva.
-# En GMSH Python API, las curvas están identificadas por su tag (las líneas ya están creadas).
-# Pero aquí en el geo estaban usando pares (como 111117, 1152), que son líneas con esos tags.
-# En Python ya creamos esas líneas con esos tags, así que podemos usar directamente esos tags.
-
-for (line1, line2), divisions in transfinite_lines.items():
-    # Ambas son líneas, usamos la función TransfiniteCurve para cada una por separado.
-    gmsh.model.geo.mesh.setTransfiniteCurve(line1, divisions)
-    gmsh.model.geo.mesh.setTransfiniteCurve(line2, divisions)
-
-# Sincronizar geometría
+# ---------------------------------------------------
+# SINCRONIZAR GEOMETRÍA
+# ---------------------------------------------------
 gmsh.model.geo.synchronize()
 
-# El script no genera malla ni guarda archivo, solo define geometría
+# ---------------------------------------------------
+# MALLADO TRANSFINITO EN SUPERFICIE & RECOMBINE
+# ---------------------------------------------------
+# Define las 4 esquinas para la superficie transfinita
+gmsh.model.geo.mesh.setTransfiniteSurface(surface1,
+                                          cornerTags=[p1, p5, p7, p11])
+# Fuerza quads puros
+gmsh.model.mesh.setRecombine(2, surface1)
+
+# ---------------------------------------------------
+# OPCIONES DE CALIDAD Y OPTIMIZACIÓN
+# ---------------------------------------------------
+gmsh.option.setNumber("Mesh.RecombineAll", 1)
+gmsh.option.setNumber("Mesh.RecombinationAlgorithm", 1)   # Blossom
+gmsh.option.setNumber("Mesh.Smoothing", 100)             # iteraciones Laplaciano
+gmsh.option.setNumber("Mesh.Optimize", 1)
+# Ajustes generales de tamaño (opcionalmente afínea a tus cm)
+gmsh.option.setNumber("Mesh.CharacteristicLengthMin",   1)
+gmsh.option.setNumber("Mesh.CharacteristicLengthMax", 100)
+# Algoritmo de triangulación auxiliar
+gmsh.option.setNumber("Mesh.Algorithm", 8)               # Delaunay 3D (Netgen)
+gmsh.option.setNumber("Mesh.SurfaceFaces", 1)
+
+# ---------------------------------------------------
+# GENERAR MALLA, OPTIMIZAR Y GUARDAR
+# ---------------------------------------------------
+gmsh.model.mesh.generate(2)
+gmsh.model.mesh.optimize("Netgen")
+
+output_file = "TAREA_3_PARTE_1_refinada.msh"
+gmsh.write(output_file)
 
 if '-nopopup' not in sys.argv:
     gmsh.fltk.run()
