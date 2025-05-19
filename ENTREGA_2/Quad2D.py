@@ -268,13 +268,12 @@ class Quad2D:
     
     def calculate_indices(self):
         """
-        Calculates the indices of the degrees of freedom for the element.
-        
-        Returns:
-            index (ndarray): Indices of the degrees of freedom.
+        Devuelve los índices globales de los grados de libertad del elemento.
+        Debería ser un arreglo de 8 valores (4 nodos × 2 DOFs).
         """
-        index=np.hstack([node.index for node in self.node_list])
+        index = np.hstack([node.dofs for node in self.node_list])
         return index
+
     
     def get_element_displacements(self, u):
         """
@@ -419,7 +418,7 @@ class Quad2D:
         
         plt.show()
 
-
+"""
 #Lets create a test for the class
 
 if __name__ == "__main__":
@@ -488,8 +487,7 @@ if __name__ == "__main__":
     print(f"Displacement: {quad_element.displacement}")
     print(f"Principal Stress: {quad_element.principal_stress}")
     print(f"Principal Strain: {quad_element.principal_strain}")
-    
-
+"""
 
 
 

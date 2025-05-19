@@ -1,7 +1,8 @@
 import numpy as np
 
 class Material:
-    def __init__(self, E, nu, gamma, type='planeStress'):
+    def __init__(self, E, nu, gamma, type='planeStress', thickness=1.0):
+        self.thickness = thickness
         self.E = E  # Young's modulus
         self.nu = nu  # Poisson's ratio
         self.type = type
