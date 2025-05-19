@@ -275,7 +275,7 @@ class Quad2D:
         return index
 
     
-    def get_element_displacements(self, u):
+    def get_element_displacements(self, u_global):
         """
         Extracts the displacements of the element from the global displacement vector.
         
@@ -285,10 +285,10 @@ class Quad2D:
         Returns:
             ue (ndarray): Displacement vector of the element.
         """
-        index = self.index
-        ue = u.flatten()  # Convertir u en un vector plano (8x1) si es necesario
+        index = self.index  # índices de DOFs del elemento
+        ue = u_global[index].flatten()
         return ue
-    
+        
     def get_element_strains(self, u):
         """
         Calculates the strains in the element.
@@ -417,6 +417,55 @@ class Quad2D:
         ax.grid(True)
         
         plt.show()
+
+    def von_mises_stress(self, u_global):
+        """
+        Calcula la tensión de Von Mises en el centroide del elemento (zeta=0, eta=0).
+
+        Args:
+            u_global (ndarray): Vector global de desplazamientos (ndof_total x 1)
+
+        Returns:
+            float: Tensión de Von Mises en el centro del elemento
+        """
+        # Obtener vector de desplazamientos del elemento
+        ue = self.get_element_displacements(u_global)
+
+        # Calcular deformaciones en el centro del elemento (zeta=0, eta=0)
+        B, _, _, _ = self.calculate_B_matrix(0.0, 0.0)
+        epsilon = B @ ue  # ε = B · u
+        self.B = B
+
+        # Calcular tensiones con la matriz constitutiva
+        sigma = self.C @ epsilon  # σ = C · ε
+        σx, σy, τxy = sigma
+
+        # Fórmula de Von Mises en 2D (plane stress o plane strain)
+        σvm = np.sqrt(σx**2 - σx*σy + σy**2 + 3 * τxy**2)
+        return float(σvm)
+    
+    def get_stress(self, u_global):
+        """
+        Calcula el vector de esfuerzos promedio en el elemento (σx, σy, τxy).
+        """
+        B = self.B  # Matriz B de deformaciones → ya debes tenerla en el elemento
+        C = self.C  # Matriz constitutiva
+        ue = self.get_element_displacements(u_global)  # Vector de desplazamientos del elemento
+        epsilon = B @ ue  # Deformación ε = B · u
+        sigma = C @ epsilon  # Esfuerzo σ = C · ε
+        return sigma  # np.array([σx, σy, τxy])
+    
+    def get_strain(self, u_global):
+        """
+        Calcula el vector de deformaciones promedio en el elemento (εx, εy, γxy).
+        """
+        B = self.B
+        ue = self.get_element_displacements(u_global)
+        epsilon = B @ ue
+        return epsilon  # np.array([εx, εy, γxy])
+
+
+
 
 """
 #Lets create a test for the class
