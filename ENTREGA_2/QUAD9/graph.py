@@ -136,6 +136,11 @@ import matplotlib.tri as mtri
 import numpy as np
 import os
 
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.tri as mtri
+import os
+
 def plot_deformed_structure(elements, title, scale=1.0, show_ids=False):
     points = []
     displacements = []
@@ -144,7 +149,7 @@ def plot_deformed_structure(elements, title, scale=1.0, show_ids=False):
     idx_counter = 0
 
     for elem in elements:
-        coords = np.array([node.coord for node in elem.node_list])
+        coords = np.array([node.coord for node in elem.node_list])  # (9,2)
         u = np.zeros_like(coords)
 
         # Obtener desplazamientos globales del nodo
@@ -153,7 +158,6 @@ def plot_deformed_structure(elements, title, scale=1.0, show_ids=False):
             uy = nodo.structure.u_global[nodo.dofs[1], 0]
             u[i] = [ux, uy]
 
-        # Coordenadas deformadas
         def_coords = coords + scale * u
 
         tri = []
@@ -167,8 +171,16 @@ def plot_deformed_structure(elements, title, scale=1.0, show_ids=False):
                 idx_counter += 1
             tri.append(point_index[key])
 
-        # Agrega una triangulación básica (subdividir quad en 2 triángulos si es necesario)
-        if len(tri) == 4:
+        # Triangulación para Quad9:
+        # Divide el cuadrilátero en 4 triángulos usando:
+        # nodos de esquina (0,1,2,3) y nodo central (8)
+        if len(tri) == 9:
+            triangles.append([tri[0], tri[1], tri[8]])
+            triangles.append([tri[1], tri[2], tri[8]])
+            triangles.append([tri[2], tri[3], tri[8]])
+            triangles.append([tri[3], tri[0], tri[8]])
+        elif len(tri) == 4:
+            # Por si hay elementos Quad4
             triangles.append([tri[0], tri[1], tri[2]])
             triangles.append([tri[0], tri[2], tri[3]])
         elif len(tri) == 3:
@@ -189,7 +201,7 @@ def plot_deformed_structure(elements, title, scale=1.0, show_ids=False):
 
     tpc = ax.tripcolor(triang, displacements, shading='gouraud', cmap='viridis')
     cb = plt.colorbar(tpc, ax=ax)
-    cb.set_label('Displacement magnitude [m]')
+    cb.set_label('Magnitud de desplazamiento [m]')
 
     ax.set_aspect('equal')
     ax.set_title(f"Estructura deformada (×{scale}) - Mapa de calor")
@@ -204,6 +216,11 @@ def plot_deformed_structure(elements, title, scale=1.0, show_ids=False):
 import matplotlib.pyplot as plt
 import matplotlib.tri as mtri
 import numpy as np
+import os
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.tri as mtri
 import os
 
 def plot_deformed_with_reactions(title, elements, reactions, scale=1.0, reaction_scale=1e-3, show_ids=False):
@@ -244,7 +261,7 @@ def plot_deformed_with_reactions(title, elements, reactions, scale=1.0, reaction
                 ax1.quiver(x, y, rx, ry, angles='xy', scale_units='xy',
                            scale=1/reaction_scale, color='red', width=0.005)
             if show_ids:
-                ax1.text(x, y, f'N{nodo.id}', fontsize=6)
+                ax1.text(x, y, f'N{nodo.index}', fontsize=6)
 
     ax1.set_title("Nodal reactions", fontsize=14)
     ax1.set_xlabel("x")
@@ -263,7 +280,6 @@ def plot_deformed_with_reactions(title, elements, reactions, scale=1.0, reaction
             mag = np.sqrt(rx**2 + ry**2)
             nodal_values[nodo.index] = mag
 
-
     all_nodes = {n.index: n for e in elements for n in e.node_list}
     node_list = list(all_nodes.values())
     node_id_map = {node.index: i for i, node in enumerate(node_list)}
@@ -276,14 +292,23 @@ def plot_deformed_with_reactions(title, elements, reactions, scale=1.0, reaction
         val = np.mean([nodal_values.get(nid, 0.0) for nid in ids])
         if val > 0:
             tri = [node_id_map[nid] for nid in ids]
-            if len(tri) == 4:
-                # dividir el quad en 2 triángulos
+            if len(tri) == 9:
+                # Dividir Quad9 en 4 triángulos con el centro (nodo 8)
+                triangles.append([tri[0], tri[1], tri[8]])
+                triangles.append([tri[1], tri[2], tri[8]])
+                triangles.append([tri[2], tri[3], tri[8]])
+                triangles.append([tri[3], tri[0], tri[8]])
+                values.extend([val, val, val, val])
+            elif len(tri) == 4:
+                # Dividir Quad4 en 2 triángulos
                 triangles.append([tri[0], tri[1], tri[2]])
                 triangles.append([tri[0], tri[2], tri[3]])
                 values.extend([val, val])
             elif len(tri) == 3:
                 triangles.append(tri)
                 values.append(val)
+            else:
+                print(f"⚠️ Elemento con {len(tri)} nodos no soportado en heatmap.")
 
     triang = mtri.Triangulation(points[:, 0], points[:, 1], triangles)
 
@@ -393,6 +418,12 @@ import matplotlib.tri as mtri
 import numpy as np
 import os
 
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.tri as mtri
+import os
+from matplotlib.colors import LogNorm
+
 def plot_von_mises_per_element(nodes, elements, vm_nodal_dict, title, cmap='plasma'):
     node_id_to_index = {}
     xs, ys = [], []
@@ -409,21 +440,34 @@ def plot_von_mises_per_element(nodes, elements, vm_nodal_dict, title, cmap='plas
     for elem in elements:
         n_ids = [node.index for node in elem.node_list]
         try:
-            n0, n1, n2, n3 = [node_id_to_index[nid] for nid in n_ids]
+            # Para Quad9 esperamos 9 nodos
+            if len(n_ids) == 9:
+                idx = [node_id_to_index[nid] for nid in n_ids]
+                # Dividir en 4 triángulos usando nodo central idx[8]
+                triangles.append([idx[0], idx[1], idx[8]])
+                triangles.append([idx[1], idx[2], idx[8]])
+                triangles.append([idx[2], idx[3], idx[8]])
+                triangles.append([idx[3], idx[0], idx[8]])
+            elif len(n_ids) == 4:
+                idx = [node_id_to_index[nid] for nid in n_ids]
+                triangles.append([idx[0], idx[1], idx[2]])
+                triangles.append([idx[0], idx[2], idx[3]])
+            else:
+                print(f"⚠️ Elemento con {len(n_ids)} nodos no soportado para Von Mises.")
+                continue
 
-            # Dos triángulos por cuadrado
-            triangles.append([n0, n1, n2])
-            triangles.append([n0, n2, n3])
-
-            # Promedio de Von Mises en nodos del elemento
+            # Promedio Von Mises en nodos del elemento
             vms_elem = np.mean([vm_nodal_dict.get(nid, 0.0) for nid in n_ids])
 
             # Asegurar valor positivo para escala logarítmica
             if vms_elem <= 0:
                 vms_elem = 1e-6
 
-            # Asignar el mismo valor a los dos triángulos
-            element_colors.extend([vms_elem, vms_elem])
+            # Repetir valor para cada triángulo generado
+            if len(n_ids) == 9:
+                element_colors.extend([vms_elem]*4)
+            elif len(n_ids) == 4:
+                element_colors.extend([vms_elem]*2)
 
         except KeyError:
             continue  # Ignora elementos con nodos faltantes
@@ -547,33 +591,44 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.tri as mtri
 
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.tri as mtri
+import os
+
 def plot_scalar_field(nodes, elements, nodal_values, field_title, filename_prefix, cmap='plasma'):
     """
-    Grafica un campo escalar interpolado sobre la malla de elementos cuadriláteros.
+    Grafica un campo escalar interpolado sobre una malla de elementos Quad9.
     """
     node_id_to_index = {node.index: i for i, node in enumerate(nodes)}
     xs = [node.coord[0] for node in nodes]
     ys = [node.coord[1] for node in nodes]
 
-    # Convertir cada cuadrilátero en 2 triángulos
     triangles = []
     for elem in elements:
         ids = [node.index for node in elem.node_list]
         try:
-            i0, i1, i2, i3 = [node_id_to_index[nid] for nid in ids]
-            # Triángulo 1: nodos 0-1-2
-            triangles.append([i0, i1, i2])
-            # Triángulo 2: nodos 0-2-3
-            triangles.append([i0, i2, i3])
+            if len(ids) == 9:
+                i0, i1, i2, i3, i4, i5, i6, i7, i8 = [node_id_to_index[nid] for nid in ids]
+                # Dividir quad9 en 4 triángulos usando nodo central (i8)
+                triangles.append([i0, i1, i8])
+                triangles.append([i1, i2, i8])
+                triangles.append([i2, i3, i8])
+                triangles.append([i3, i0, i8])
+            elif len(ids) == 4:
+                i0, i1, i2, i3 = [node_id_to_index[nid] for nid in ids]
+                triangles.append([i0, i1, i2])
+                triangles.append([i0, i2, i3])
+            else:
+                print(f"⚠️ Elemento con {len(ids)} nodos no soportado en plot_scalar_field.")
+                continue
         except KeyError:
-            continue  # Omitir elementos con nodos faltantes
+            continue
 
-    # Valores nodales del campo escalar
     values = np.zeros(len(nodes))
     for node in nodes:
         values[node_id_to_index[node.index]] = nodal_values.get(node.index, 0.0)
 
-    # Márgenes y dimensiones
     x_min, x_max = min(xs), max(xs)
     y_min, y_max = min(ys), max(ys)
     x_margin = 0.05 * (x_max - x_min)
@@ -615,6 +670,12 @@ import matplotlib.tri as mtri
 from matplotlib.colors import Normalize
 import os
 
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.tri as mtri
+import os
+from matplotlib.colors import Normalize
+
 def plot_scalar_field_per_element(nodes, elements, nodal_values, field_title, filename_prefix, cmap='plasma'):
     node_id_to_index = {node.index: i for i, node in enumerate(nodes)}
     xs = [node.coord[0] for node in nodes]
@@ -626,18 +687,30 @@ def plot_scalar_field_per_element(nodes, elements, nodal_values, field_title, fi
     for elem in elements:
         try:
             ids = [node.index for node in elem.node_list]
-            i0, i1, i2, i3 = [node_id_to_index[nid] for nid in ids]
+            if len(ids) == 9:
+                i0, i1, i2, i3, i4, i5, i6, i7, i8 = [node_id_to_index[nid] for nid in ids]
+                # Dividir quad9 en 4 triángulos con nodo central i8
+                triangles.append([i0, i1, i8])
+                triangles.append([i1, i2, i8])
+                triangles.append([i2, i3, i8])
+                triangles.append([i3, i0, i8])
+            elif len(ids) == 4:
+                i0, i1, i2, i3 = [node_id_to_index[nid] for nid in ids]
+                triangles.append([i0, i1, i2])
+                triangles.append([i0, i2, i3])
+            else:
+                print(f"⚠️ Elemento con {len(ids)} nodos no soportado.")
+                continue
 
-            # Dos triángulos por elemento cuadrado
-            triangles.append([i0, i1, i2])
-            triangles.append([i0, i2, i3])
-
-            # Valor escalar promedio por elemento
             vals = [nodal_values.get(nid, 0.0) for nid in ids]
             value = np.mean(vals)
 
-            # Repetir valor por cada triángulo
-            element_values.extend([value, value])
+            # Asignar valor promedio a cada triángulo generado
+            if len(ids) == 9:
+                element_values.extend([value]*4)
+            else:
+                element_values.extend([value]*2)
+
         except KeyError:
             continue
 
@@ -646,7 +719,6 @@ def plot_scalar_field_per_element(nodes, elements, nodal_values, field_title, fi
 
     triang = mtri.Triangulation(xs, ys, triangles)
 
-    # Márgenes para ajuste visual
     x_min, x_max = min(xs), max(xs)
     y_min, y_max = min(ys), max(ys)
     x_margin = (x_max - x_min) * 0.05
@@ -655,7 +727,6 @@ def plot_scalar_field_per_element(nodes, elements, nodal_values, field_title, fi
 
     fig, ax = plt.subplots(figsize=(8, height))
 
-    # Normalización lineal de colores
     vmin = np.min(element_values)
     vmax = np.max(element_values)
     norm = Normalize(vmin=vmin, vmax=vmax)
