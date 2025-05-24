@@ -9,57 +9,53 @@ import re
 from nodes import Node
 from material import Material
 from membrane import Membrane
-from Quad2D import Quad2D
+from Quad2D import Quad9
 from solve import Solve
 from graph import plot_results
+from collections import defaultdict
 
-def make_nodes_groups(output_file, title):
+def make_nodes_groups_quad9(output_file, title):
     mesh = meshio.read(output_file)
     
-    # Traducimos los tags físicos a nombres
     tag_to_name = {v[0]: k for k, v in mesh.field_data.items()}
-    grupos = {}
+    grupos = defaultdict(dict)  # nombre_grupo: {id_nodo: Node}
 
-    # Elementos tipo "quad" → para el dominio estructural
+    # Procesar elementos tipo quad9
     for cell_block, phys_tags in zip(mesh.cells, mesh.cell_data["gmsh:physical"]):
-        if cell_block.type != "quad":
+        if cell_block.type != "quad9":
             continue
         for quad, tag in zip(cell_block.data, phys_tags):
-            nombre = tag_to_name.get(tag, f"{tag}")
-            if nombre not in grupos:
-                grupos[nombre] = []
+            nombre = tag_to_name.get(tag, str(tag))
             for node_id in quad:
                 x, y = mesh.points[node_id][:2]
-                grupos[nombre].append(Node(node_id + 1, [x, y]))
+                if node_id not in grupos[nombre]:
+                    grupos[nombre][node_id] = Node(node_id + 1, [x, y])
 
-    # Elementos tipo "line" → condiciones de borde
+    # Procesar líneas tipo line3 para condiciones de borde
     for cell_block, phys_tags in zip(mesh.cells, mesh.cell_data["gmsh:physical"]):
-        if cell_block.type != "line":
+        if cell_block.type != "line3":
             continue
         for line, tag in zip(cell_block.data, phys_tags):
-            nombre = tag_to_name.get(tag, f"{tag}")
-            if nombre not in grupos:
-                grupos[nombre] = []
+            nombre = tag_to_name.get(tag, str(tag))
             for node_id in line:
                 x, y = mesh.points[node_id][:2]
                 restrain = [0, 0]
-                if nombre in ["Restriccion"]:
+                if nombre == "Restriccion":
                     restrain = [1, 0]
-                if x == 1000 and y == 1000:
+                if np.isclose(x, 1000) and np.isclose(y, 1000):
                     restrain = [1, 1]
-                grupos[nombre].append(Node(node_id + 1, [x, y], restrain=restrain))
+                if node_id not in grupos[nombre]:
+                    grupos[nombre][node_id] = Node(node_id + 1, [x, y], restrain=restrain)
+                else:
+                    grupos[nombre][node_id].restrain = restrain  # Actualiza si ya existe
 
-    # Eliminar nodos duplicados por grupo (según id)
-    for nombre in grupos:
-        nodos_unicos = {}
-        for nodo in grupos[nombre]:
-            nodos_unicos[nodo.index] = nodo
-        grupos[nombre] = list(nodos_unicos.values())
+    # Convertir a listas
+    grupos_final = {nombre: list(nodos.values()) for nombre, nodos in grupos.items()}
 
-    # Visualización opcional
-    #Node.plot_nodes_por_grupo(grupos, title, show_ids=False, save=False)
+    # Visualizar (si está disponible)
+    #Node.plot_nodes_por_grupo(grupos_final, title, show_ids=False, save=False)
 
-    return grupos, mesh
+    return grupos_final, mesh
 
 def make_sections(grupos, thickness_dict, E, nu, gamma):
     
@@ -76,17 +72,18 @@ def make_sections(grupos, thickness_dict, E, nu, gamma):
 
     return sections, nodes_dict
 
-def make_quad2d_elements(mesh, sections, nodes_dict):
-    quads = mesh.cells_dict.get('quad', [])
-    tags = mesh.cell_data_dict["gmsh:physical"].get("quad", [])
+def make_quad9_elements(mesh, sections, nodes_dict):
+    quads = mesh.cells_dict.get('quad9', [])
+    tags = mesh.cell_data_dict["gmsh:physical"].get("quad9", [])
     elements = []
     used_nodes = set()
     nodos_faltantes = []
+    errores_jacobiano = []
 
     for i in range(len(tags)):
         section_tag = str(tags[i])
         if section_tag not in sections:
-            print(f"⚠️ Tag físico {section_tag} no tiene sección asociada. Elemento {i+1} omitido.")
+            print(f"⚠️ Tag físico {section_tag} no tiene sección asociada. Elemento {i + 1} omitido.")
             continue
 
         section = sections[section_tag]
@@ -102,119 +99,65 @@ def make_quad2d_elements(mesh, sections, nodes_dict):
         for nodo in nodos:
             used_nodes.add(nodo)
 
-        #print(nodos)
-
-        element = Quad2D(i + 1, nodos, section)
-        elements.append(element)
+        # Intentamos crear el elemento y capturamos errores de Jacobiano
+        try:
+            element = Quad9(i + 1, nodos, section)
+            elements.append(element)
+        except ValueError as ve:
+            print(f"❌ Error en el elemento {i + 1} con Jacobiano no positivo:")
+            print(f"   Nodos: {[n.index for n in nodos]}")
+            print(f"   Coordenadas:")
+            for j, n in enumerate(nodos):
+                print(f"     Nodo local {j}: ID {n.index}, coord = {n.coord}")
+            errores_jacobiano.append(i + 1)
+            continue
 
     if nodos_faltantes:
         print(f"❌ Se omitieron {len(nodos_faltantes)} elementos por nodos faltantes.")
-    
+    if errores_jacobiano:
+        print(f"⚠️ Se omitieron {len(errores_jacobiano)} elementos por Jacobiano negativo.")
+
     return elements, list(used_nodes)
 
-def plot_all_elements(elements, title, show_ids=True):
-    all_x = []
-    all_y = []
-
-    # Recopilar coordenadas de todos los nodos
-    for elem in elements:
-        coords = elem.xy  # accede directamente a las coordenadas
-        coords = np.vstack([coords, coords[0]])  # cerrar el polígono
-        all_x.extend(coords[:, 0])
-        all_y.extend(coords[:, 1])
-
-    # Márgenes y límites
-    x_min, x_max = min(all_x), max(all_x)
-    y_min, y_max = min(all_y), max(all_y)
-    x_margin = (x_max - x_min) * 0.05
-    y_margin = (y_max - y_min) * 0.05
-
-    x_range = (x_max - x_min) + 2 * x_margin
-    y_range = (y_max - y_min) + 2 * y_margin
-
-    fixed_width = 8
-    aspect_ratio = y_range / x_range
-    height = fixed_width * aspect_ratio
-
-    fig, ax = plt.subplots(figsize=(fixed_width, height))
-
-    for elem in elements:
-        coords = elem.xy
-        coords = np.vstack([coords, coords[0]])  # cerrar el polígono
-
-        ax.plot(coords[:, 0], coords[:, 1], 'k-', linewidth=1)
-
-        if show_ids:
-            for nodo, (x, y) in zip(elem.node_list, coords[:-1]):
-                ax.text(x, y, f'N{nodo.index}', color='black', fontsize=6, ha='center', va='center')
-
-    ax.set_xlim(x_min - x_margin, x_max + x_margin)
-    ax.set_ylim(y_min - y_margin, y_max + y_margin)
-    ax.set_aspect('equal', adjustable='box')
-    ax.set_xlabel("x")
-    ax.set_ylabel("y")
-    ax.set_title("All Quad2D elements")
-    ax.grid(True)
-
-    plt.show()
-    
-def apply_distributed_force(grupo_nodos, fuerza_total_y, estructura):
-    """
-    Aplica una fuerza distribuida vertical (por ejemplo, peso) sobre una línea formada por nodos.
-    La fuerza se reparte proporcionalmente a la longitud de los tramos y se descompone en x e y.
-    """
-
+def apply_distributed_force(grupo_nodos, fuerza_total_x, estructura):
     nodos = grupo_nodos
     n = len(nodos)
     if n < 2:
         print("Se requieren al menos dos nodos para aplicar fuerza distribuida.")
         return
 
-    # Paso 1: calcular longitud total
-    longitudes = []
-    total_length = 0
-    for i in range(n - 1):
-        dx = nodos[i+1].coord[0] - nodos[i].coord[0]
-        dy = nodos[i+1].coord[1] - nodos[i].coord[1]
-        L = np.sqrt(dx**2 + dy**2)
-        longitudes.append(L)
-        total_length += L
+    # Calcular posiciones acumuladas según distancia entre nodos (longitud sobre la curva)
+    posiciones = [0.0]
+    for i in range(1, n):
+        dx = nodos[i].coord[0] - nodos[i-1].coord[0]
+        dy = nodos[i].coord[1] - nodos[i-1].coord[1]
+        distancia = np.sqrt(dx**2 + dy**2)
+        posiciones.append(posiciones[-1] + distancia)
+    total_longitud = posiciones[-1]
 
-    q_lineal = fuerza_total_y / total_length  # fuerza por metro
+    # Inicializar fuerzas nodales
+    nodal_forces = {}
 
-    # Paso 2: inicializar diccionario de fuerzas
-    nodal_forces = {node.index: np.array([0.0, 0.0]) for node in nodos}
+    # Aplicar fuerza proporcional al tramo entre posiciones adyacentes
+    for i in range(n):
+        if i == 0:
+            # Primer nodo: mitad de la diferencia con siguiente nodo
+            fuerza = (posiciones[1] - posiciones[0]) / total_longitud * fuerza_total_x * 0.5
+        elif i == n-1:
+            # Último nodo: mitad de la diferencia con nodo anterior
+            fuerza = (posiciones[-1] - posiciones[-2]) / total_longitud * fuerza_total_x * 0.5
+        else:
+            # Nodo interno: mitad de tramo anterior + mitad de tramo siguiente
+            fuerza = ((posiciones[i] - posiciones[i-1]) + (posiciones[i+1] - posiciones[i])) / total_longitud * fuerza_total_x * 0.5
+        nodal_forces[nodos[i].index] = fuerza
 
-    for i in range(n - 1):
-        ni = nodos[i]
-        nj = nodos[i + 1]
-        xi, yi = ni.coord
-        xj, yj = nj.coord
-
-        dx = xj - xi
-        dy = yj - yi
-        L = longitudes[i]
-
-        # Vector perpendicular hacia "abajo"
-        vx = dx / L
-        vy = dy / L
-        nx = -vy
-        ny = vx
-
-        Fi = q_lineal * L
-        fx = Fi * nx
-        fy = Fi * ny
-
-        nodal_forces[ni.index] += np.array([fx / 2, fy / 2])
-        nodal_forces[nj.index] += np.array([fx / 2, fy / 2])
-
-    # Paso 3: aplicar fuerzas al sistema
+    # Aplicar fuerzas en X
     for node in nodos:
-        fx, fy = nodal_forces[node.index]
+        fx = nodal_forces[node.index]
         dof_x, dof_y = node.dofs
-        #estructura.apply_force(dof_x, fx)
         estructura.apply_force(dof_x, fx)
-        #print(f"Nodo {node.index} ← Fx = {fx:.3f} N, Fy = {fy:.3f} N")
+        estructura.apply_force(dof_y, 0.0)
+        #print(f"Nodo {node.index} ← Fx = {fx:.3f} N, Fy = 0.000 N, coordenadas y = {node.coord[1]:.3f}")
 
 def apply_self_weight(elements, rho, estructura):
     """
@@ -239,8 +182,6 @@ def apply_self_weight(elements, rho, estructura):
 
     print(f"✅ Peso total aplicado: {P:.3f} N")
     return P
-
-from matplotlib.colors import Normalize
 
 def plot_elements_by_thickness(elements, title="Espesor por elemento", cmap="viridis"):
     """
@@ -446,10 +387,10 @@ def optimize_topology_iterative_n_extremes(P, grupos, elements, nodes, rho, estr
         #===========================================
         #AGREGAR FUERZAS DISTRIBUIDAS
         nodos_fuerza = grupos["Fuerza_Y_1"]
-        apply_distributed_force(nodos_fuerza, fuerza_total_y=-120000, estructura=estructure)
+        apply_distributed_force(nodos_fuerza, fuerza_total_x=-120000, estructura=estructure)
 
         nodos_fuerza = grupos["Fuerza_Y_2"]
-        apply_distributed_force(nodos_fuerza, fuerza_total_y=-30000, estructura=estructure)
+        apply_distributed_force(nodos_fuerza, fuerza_total_x=-30000, estructura=estructure)
         #===========================================
 
         estructure.solve()
@@ -500,8 +441,9 @@ def optimize_topology_iterative_n_extremes(P, grupos, elements, nodes, rho, estr
     
     return estructure
 
-def main(title, self_weight=True, Topologic_Optimization=False):
-    output_file = 'ENTREGA_2/QUAD4/Quad4.msh'
+def main(title, self_weight=True, Topologic_Optimization=False): 
+
+    output_file = 'ENTREGA_2/QUAD9/Quad9.msh'
 
     E = 210e3  # MPa
     nu = 0.3
@@ -509,11 +451,9 @@ def main(title, self_weight=True, Topologic_Optimization=False):
 
     thickness_dict = {"1": 20, "2": 20, "3": 20, "4": 20}
 
-    grupos, mesh = make_nodes_groups(output_file, "test")
-    sections, nodes_dict = make_sections(grupos, thickness_dict=thickness_dict,E=E, nu=nu, gamma=rho)
-    elements, used_nodes = make_quad2d_elements(mesh, sections, nodes_dict)
-
-    #plot_all_elements(elements, "All Quad2D elements", show_ids=True)
+    grupos, mesh = make_nodes_groups_quad9(output_file, "Quad9")
+    sections, nodes_dict = make_sections(grupos, thickness_dict, E, nu, rho)
+    elements, used_nodes = make_quad9_elements(mesh, sections, nodes_dict)
 
     estructure = Solve(used_nodes, elements)
 
@@ -522,12 +462,11 @@ def main(title, self_weight=True, Topologic_Optimization=False):
         # Aplicar peso propio a los elementos
         Peso = apply_self_weight(elements, rho, estructure)
 
-
     nodos_fuerza = grupos["Fuerza_Y_1"]
-    apply_distributed_force(nodos_fuerza, fuerza_total_y=-120000, estructura=estructure)
+    apply_distributed_force(nodos_fuerza, fuerza_total_x=-120000, estructura=estructure)
 
     nodos_fuerza = grupos["Fuerza_Y_2"]
-    apply_distributed_force(nodos_fuerza, fuerza_total_y=-30000, estructura=estructure)
+    apply_distributed_force(nodos_fuerza, fuerza_total_x=-30000, estructura=estructure)
 
     desplazamientos = estructure.solve()
 
@@ -542,8 +481,6 @@ def main(title, self_weight=True, Topologic_Optimization=False):
         sigma_y_tension=250, 
         sigma_y_compression=250
     )
- 
-
 
     if Topologic_Optimization:
         if not self_weight:
@@ -572,7 +509,7 @@ def main(title, self_weight=True, Topologic_Optimization=False):
 
         vm_nodal = compute_nodal_von_mises(estructure.elements, estructure.u_global)
         plot_von_mises_field(estructure.nodes, estructure.elements, vm_nodal, title+'_topo')
-        
 
 if __name__ == "__main__":
-    main(title="Quad4/resultados", self_weight=True, Topologic_Optimization=True)
+    title = "Quad9/results"
+    main(title, Topologic_Optimization=True)

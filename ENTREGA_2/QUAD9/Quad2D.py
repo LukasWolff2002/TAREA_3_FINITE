@@ -150,3 +150,32 @@ class Quad9:
         ax.set_title(f'Quad9 Element {self.elementTag}')
         plt.grid(True)
         plt.show()
+
+    def get_centroid(self):
+        """
+        Devuelve el centroide del elemento cuadrilateral de 9 nodos
+        como el promedio de las coordenadas de todos los nodos.
+        """
+        coords = np.array([node.coord for node in self.node_list])
+        return np.mean(coords, axis=0)
+    
+    def apply_point_body_force(self, x, y, force_vector):
+        """
+        Aplica una fuerza puntual en (x, y) interpolándola con las
+        funciones de forma del Quad9.
+
+        Returns:
+            f_puntual (ndarray): Vector de fuerza equivalente (18 x 1)
+        """
+        # Asumimos aplicación centrada para peso propio → centro natural
+        zeta = 0.0
+        eta = 0.0
+
+        N, _ = self.calculate_interpolation_functions(zeta, eta)  # (2 x 18)
+        fx, fy = force_vector
+        fuerza = np.array([[fx], [fy]])  # (2 x 1)
+
+        f_puntual = (N.T @ fuerza).flatten()  # (18 x 1) → flatten
+        return f_puntual
+
+

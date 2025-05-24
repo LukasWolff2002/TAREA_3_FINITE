@@ -10,7 +10,7 @@ class Solve:
         self.u_global = np.zeros((self.ndof + 1, 1))
 
     def assemble(self):
-        print("🔧 Ensamblando matriz global...")
+        #print("🔧 Ensamblando matriz global...")
 
         for elem in self.elements:
             ke = elem.Kg
@@ -22,7 +22,7 @@ class Solve:
             for i in range(len(idx)):
                 for j in range(len(idx)):
                     if idx[i] >= self.K_global.shape[0] or idx[j] >= self.K_global.shape[1]:
-                        print(f"❌ DOF fuera de rango: idx[{i}] = {idx[i]}, idx[{j}] = {idx[j]}")
+                        #print(f"❌ DOF fuera de rango: idx[{i}] = {idx[i]}, idx[{j}] = {idx[j]}")
                         continue
                     self.K_global[idx[i], idx[j]] += ke[i, j]
 
@@ -66,15 +66,15 @@ class Solve:
         self.apply_boundary_conditions()
 
         used_dofs = sorted(set(dof for node in self.nodes for dof in node.dofs))
-        print(f"DOFs used: {used_dofs}")
+        #print(f"DOFs used: {used_dofs}")
         K_reduced = self.K_global[np.ix_(used_dofs, used_dofs)]
-        print(K_reduced)
+        #print(K_reduced)
         f_reduced = self.f_global[used_dofs]
 
         rowsums = np.sum(np.abs(K_reduced), axis=1)
         zero_rows = np.where(rowsums == 0)[0]
         if len(zero_rows) > 0:
-            print(f"❌ Filas completamente nulas en K_reduced: {zero_rows}")
+            #print(f"❌ Filas completamente nulas en K_reduced: {zero_rows}")
             raise ValueError("Sistema subdeterminado: nodos con DOF sin rigidez.")
 
 
@@ -104,10 +104,10 @@ class Solve:
             dof_x, dof_y = node.dofs
             fx = f[dof_x][0] if dof_x < len(f) else 0.0
             fy = f[dof_y][0] if dof_y < len(f) else 0.0
-            print(f"Nodo {node.index}: Fx = {fx:.2f}, Fy = {fy:.2f}")
+            #print(f"Nodo {node.index}: Fx = {fx:.2f}, Fy = {fy:.2f}")
 
     def print_summary(self):
-        print("Desplazamientos por nodo:")
+        #print("Desplazamientos por nodo:")
         for node in self.nodes:
             ux, uy = self.get_displacement_at_node(node.index)
-            print(f"Nodo {node.index}: ux = {ux:.6e}, uy = {uy:.6e}")
+            #print(f"Nodo {node.index}: ux = {ux:.6e}, uy = {uy:.6e}")
