@@ -64,7 +64,7 @@ class Quad2D:
         self.samplingPoints = samplingPoints
         self.load_direction = load_direction
         self.eval_points=eval_points
-        
+
         self.xy = self.calculate_xy()
         self.C = membrane.material.Emat
         
@@ -303,8 +303,8 @@ class Quad2D:
         ue = self.get_element_displacements(u)
         eval_point=self.eval_points
         B, _, _, _ = self.calculate_B_matrix(eval_point[0],eval_point[1])
-        print(f"ue shape: {ue.shape}")
-        print(f"B shape: {B.shape}")
+        #print(f"ue shape: {ue.shape}")
+        #print(f"B shape: {B.shape}")
 
         epsilon_e = B @ ue
         return epsilon_e, ue
@@ -354,7 +354,7 @@ class Quad2D:
         Returns:
             principal_stress (ndarray): Principal stresses of the element.
         """
-        print(f"{sigma=}")
+        #print(f"{sigma=}")
         sx = sigma[0]  # Primero esfuerzo (tensión normal en x)
         sy = sigma[1]  # Segundo esfuerzo (tensión normal en y)
         sxy = sigma[2]  # Esfuerzo cortante (xy)
@@ -464,80 +464,31 @@ class Quad2D:
         epsilon = B @ ue
         return epsilon  # np.array([εx, εy, γxy])
 
-
-
-
-"""
-#Lets create a test for the class
-
-if __name__ == "__main__":
-    from nodes import Node
-    from material import Material
-
-    #Create nodes
-    node1 = Node(1, [3,0])
-    node2 = Node(2, [9,0])
-    node3 = Node(3, [0,9])
-    node4 = Node(4, [0,3])
-
-    node_list = [node1, node2, node3, node4]
-
-    #Create material
-    E = 210e9  # Young's modulus in Pascals
-    nu = 0.3  # Poisson's ratio
-
-    material = Material(E, nu, gamma=0)
-
-    thickness = 0.01  # Thickness in meters
+    def get_centroid(self):
+        """
+        Devuelve el centroide del elemento cuadrilateral
+        como el promedio de las coordenadas de los 4 nodos.
+        """
+        return np.mean(self.xy, axis=0)
     
-    class Membrane:
-        def __init__(self, thickness, material):
-            self.thickness = thickness
-            self.material = material
+    def apply_point_body_force(self, x, y, force_vector):
+        """
+        Aplica una fuerza puntual en las coordenadas (x, y) interpolándola
+        con las funciones de forma del Quad4.
 
-    membrane = Membrane(thickness, material)
-    #Create element
-    elementTag = 1
-    quad_element = Quad2D(elementTag, node_list, membrane, type='planeStress', samplingPoints=3, load_direction=[0, 0], eval_points=[0, 0])
-    #Print element properties
-    print(f"Element Tag: {quad_element.elementTag}")
-    print(f"Node List: {[node.name for node in quad_element.node_list]}")
-    print(f"Thickness: {quad_element.thickness}")
+        Returns:
+            f_puntual (ndarray): Vector de fuerza equivalente (8 x 1)
+        """
+        # Transformar coordenadas físicas (x, y) a naturales (zeta, eta)
+        # Suponemos punto centrado para peso propio → zeta = eta = 0
+        zeta = 0.0
+        eta = 0.0
 
-    print(f"Material Properties: {quad_element.material.get_properties()}")
-    print(f"Sampling Points: {quad_element.samplingPoints}")
-    print(f"Load Direction: {quad_element.load_direction}")
-    print(f"Area: {quad_element.A}")
-    print(f"Stiffness Matrix: {quad_element.Kg}")
-    print(f"Global Force Vector: {quad_element.F_fe_global}")
+        N, _ = self.calculate_interpolation_functions(zeta, eta)
+        fx, fy = force_vector
+        fuerza = np.array([[fx], [fy]])
 
-    #Visualizo el elemento
-    #quad_element.element_visualization(offset=0.1)
+        f_puntual = (N.T @ fuerza).flatten()
 
-    #Le aplico una fuersa
-    # Asumiendo que 'node_list' tiene 4 nodos y cada uno tiene 2 grados de libertad (x, y)
-    u = np.array([[2,0],  # Desplazamientos para el nodo 1 (x, y)
-              [3,0],  # Desplazamientos para el nodo 2 (x, y)
-              [0,-3],  # Desplazamientos para el nodo 3 (x, y)
-              [0,-2]]) # Desplazamientos para el nodo 4 (x, y)
+        return f_puntual
 
-    # Verificamos las formas de 'ue' y 'B'
-    
-
-    # Calculamos los esfuerzos y deformaciones
-    sigma_e, epsilon_e, ue = quad_element.get_element_stress(u)
-    principal_stress = quad_element.calculate_principal_stress(sigma_e)
-    principal_strain = quad_element.calculate_principal_strain(epsilon_e)
-
-    quad_element.set_results(sigma_e, epsilon_e, ue, principal_stress, principal_strain)
-
-    print(f"Stress: {quad_element.sigma}")
-    print(f"Strain: {quad_element.epsilon}")
-    print(f"Displacement: {quad_element.displacement}")
-    print(f"Principal Stress: {quad_element.principal_stress}")
-    print(f"Principal Strain: {quad_element.principal_strain}")
-"""
-
-
-
-    
