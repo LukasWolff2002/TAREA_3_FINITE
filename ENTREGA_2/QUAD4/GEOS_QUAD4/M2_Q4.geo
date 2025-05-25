@@ -44,8 +44,8 @@ Plane Surface(4) = {4};
 // ——————————————————————————————
 // Hago transfinita cada superficie (Local refinment Ussing Progression)
 L_tot = 1000; //total
-h = 10; //Altura elemento: 2 - 1 - 0.5 - 0.25
-b = 50;
+h = 5; //Altura elemento: 2 - 1 - 0.5 - 0.25
+b = 10;
 
 N = L_tot/h;
 h1 = (N*800)/1000;
