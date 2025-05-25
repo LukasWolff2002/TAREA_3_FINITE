@@ -286,7 +286,7 @@ def plot_elements_by_thickness(elements, title="Espesor por elemento", cmap="vir
     norm = Normalize(vmin=min(valores), vmax=max(valores))
 
     fig, ax = plt.subplots(figsize=(10, 6))
-    tpc = ax.tripcolor(triang, facecolors=valores, cmap=cmap, norm=norm, edgecolors='k')
+    tpc = ax.tripcolor(triang, facecolors=valores, cmap=cmap, norm=norm, edgecolors='none')
     cbar = plt.colorbar(tpc, ax=ax)
     cbar.set_label("Espesor [mm]")
 
@@ -500,8 +500,7 @@ def optimize_topology_iterative_n_extremes(P, grupos, elements, nodes, rho, estr
     
     return estructure
 
-def main(title, self_weight=True, Topologic_Optimization=False):
-    output_file = 'ENTREGA_2/QUAD4/Quad4.msh'
+def main(title, output_file, self_weight=True, Topologic_Optimization=False):
 
     E = 210e3  # MPa
     nu = 0.3
@@ -554,8 +553,8 @@ def main(title, self_weight=True, Topologic_Optimization=False):
                     nodes=used_nodes,
                     rho=rho,
                     estructure=estructure,
-                    num_iterations=20,
-                    num_elements=40,        
+                    num_iterations=50,
+                    num_elements=100,        
                     delta_t=2,
                     t_min=1,
                     t_max=40,
@@ -575,4 +574,14 @@ def main(title, self_weight=True, Topologic_Optimization=False):
         
 
 if __name__ == "__main__":
-    main(title="Quad4/resultados", self_weight=True, Topologic_Optimization=True)
+    output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_2mm.msh"
+    main(title="Quad4/2mm_global/resultados", output_file=output_file, self_weight=True, Topologic_Optimization=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_1.75mm.msh"
+    #main(title="Quad4/1.75mm_global/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_1.5mm.msh"
+    #main(title="Quad4/1.5mm_global/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_1.25mm.msh"
+    #main(title="Quad4/1.25mm_global/resultados", output_file=output_file, self_weight=True)

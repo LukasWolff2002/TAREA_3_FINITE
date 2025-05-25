@@ -1,0 +1,16 @@
+Titulo: Quad4/2mm_global/resultados
+Máximo: 22.74440421929352
+Mínimo: 0.9377523041071587
+
+Titulo: Quad4/1.75mm_global/resultados
+Máximo: 22.86908881097029
+Mínimo: 0.9363017475862545
+
+Titulo: Quad4/1.5mm_global/resultados
+Máximo: 22.99758123708897
+Mínimo: 0.9348949039213675
+
+Titulo: Quad4/1.25mm_global/resultados
+Máximo: 23.12899948367148
+Mínimo: 0.9335467492422025
+

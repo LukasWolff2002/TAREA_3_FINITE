@@ -1,0 +1,16 @@
+Titulo: Quad9/2mm_global/resultados
+Máximo: 22.255097224090672
+Mínimo: 0.9058541853382268
+
+Titulo: Quad9/1.75mm_global/resultados
+Máximo: 22.310975435082177
+Mínimo: 0.9035534151870461
+
+Titulo: Quad9/1.5mm_global/resultados
+Máximo: 22.367423051066257
+Mínimo: 0.9012569140999327
+
+Titulo: Quad9/1.25mm_global/resultados
+Máximo: 22.424719020352263
+Mínimo: 0.8989850296044042
+
