@@ -43,16 +43,13 @@ Plane Surface(4) = {4};
 
 // ——————————————————————————————
 // Hago transfinita cada superficie (global refinment)
-L1 = 800; //Alto 1
-L2 = 200; //Alto 2
-L_tot = 1000 //total
-h = 2; //Altura elemento
-m1 = L_tot/h; //Ctd divisiones
-m2 = L_tot/h; //Ctd divisiones
-Transfinite Curve {1, 9, 6} = m1;
-Transfinite Curve {2,10,5} = m2;
-Transfinite Curve {7,12,4} = m1;
-Transfinite Curve {8,11,3} = m2;
+L_tot = 1000; //total
+h = 2; //Altura elemento: 2 - 1 - 0.5 - 0.25
+m = Round(L_tot/h); //Ctd divisiones
+Transfinite Curve {1, 9, 6} = m;
+Transfinite Curve {2,10,5} = m;
+Transfinite Curve {7,12,4} = m;
+Transfinite Curve {8,11,3} = m;
 
 Transfinite Surface {1};
 Transfinite Surface {2};
