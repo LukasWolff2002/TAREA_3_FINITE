@@ -45,7 +45,7 @@ Plane Surface(4) = {4};
 // Hago transfinita cada superficie (global refinment)
 L_tot = 1000; //total
 h = 2; //Altura elemento: 2 - 1 - 0.5 - 0.25
-b = 20;
+b = 80;
 
 N = L_tot/h;
 h1 = (N*800)/1000;

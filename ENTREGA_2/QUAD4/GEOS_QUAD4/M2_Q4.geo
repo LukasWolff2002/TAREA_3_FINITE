@@ -28,6 +28,7 @@ Line(10) = {7,3};
 Line(11) = {9,7};
 Line(12) = {7,8};
 
+
 // Genera loop
 Line Loop(1) = {1,11,8,9};
 Line Loop(2) = {2,3,10,11};
@@ -40,14 +41,11 @@ Plane Surface(2) = {2};
 Plane Surface(3) = {3};
 Plane Surface(4) = {4};
 
-// Hago transfinita cada superficie (Local refinment)
-// Longitudes de curvas (mm)
-
-L3  = Sqrt((1000-800)*(1000-800) + (200-0)*(200-0));
+// ——————————————————————————————
+// Hago transfinita cada superficie (Local refinment Ussing Progression)
 L_tot = 1000; //total
-h = 2; //Altura elemento: 2 - 1 - 0.5 - 0.25
-b = 20;
-h_h = 1.5; //h para refinar linea 3
+h = 10; //Altura elemento: 2 - 1 - 0.5 - 0.25
+b = 50;
 
 N = L_tot/h;
 h1 = (N*800)/1000;
@@ -58,12 +56,10 @@ B = 1000/b;
 b1 = (B*400)/1000;
 b2 = (B*600)/1000;
 
-m3  = L3/h_h;    // refinamiento solo curva 3
-
 Transfinite Curve {1, 9, 6} = b1;
-Transfinite Curve {2,10,5} =  b2; 
+Transfinite Curve {2,10,-5} =  b2 Using Progression 0.7; 
 Transfinite Curve {7,12,4} =  h1; //Altura Superior, jugar con este
-Transfinite Curve {8,11,3} =  m3; //Altura inferior, jugar con este
+Transfinite Curve {8,11,3} =  h2; //Altura inferior, jugar con este
 
 Transfinite Surface {1};
 Transfinite Surface {2};
