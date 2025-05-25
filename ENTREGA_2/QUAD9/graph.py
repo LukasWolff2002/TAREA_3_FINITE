@@ -994,24 +994,36 @@ def compute_nodal_stress_strain(nodes, elements, u_global):
 
 def plot_results (estructure, elements, title, def_scale=1, force_scale=1e-2, reaction_scale=1e-2, sigma_y_tension=0, sigma_y_compression=0):
     f = estructure.f_original if hasattr(estructure, 'f_original') else estructure.f_global
-    plot_applied_forces(estructure.nodes, elements,title, f, scale=force_scale)
+    #plot_applied_forces(estructure.nodes, elements,title, f, scale=force_scale)
 
     # Importante: guardar los desplazamientos en cada nodo
     for node in estructure.nodes:
         node.structure = estructure  # para acceder a u_global desde cada nodo
 
     # Luego graficar
-    plot_deformed_structure(estructure.elements, title, scale=def_scale, show_ids=False)
+    #plot_deformed_structure(estructure.elements, title, scale=def_scale, show_ids=False)
 
-    reacciones = estructure.compute_reactions()
+    #reacciones = estructure.compute_reactions()
 
-    plot_deformed_with_reactions(title, estructure.elements, reacciones, scale=def_scale, reaction_scale=reaction_scale, show_ids=False)
+    #plot_deformed_with_reactions(title, estructure.elements, reacciones, scale=def_scale, reaction_scale=reaction_scale, show_ids=False)
 
     vm_nodal = compute_nodal_von_mises(estructure.elements, estructure.u_global)
+    max_value = max(vm_nodal.values())
+    min_value = min(vm_nodal.values())
+
+    # Guardarlos en un archivo de texto
+    with open('ENTREGA_2/QUAD9/resultados.txt', 'a') as file:
+        file.write(f"Titulo: {title}\n")
+        file.write(f"Máximo: {max_value}\n")
+        file.write(f"Mínimo: {min_value}\n")
+        file.write("\n")
+
+    print("Máximo y Mínimo guardados en 'resultados.txt'.")
     plot_von_mises_field(estructure.nodes, estructure.elements, vm_nodal, title)
-    plot_von_mises_per_element(estructure.nodes, estructure.elements, vm_nodal, title)
+    plot_von_mises_field(estructure.nodes, estructure.elements, vm_nodal, title)
+    #plot_von_mises_per_element(estructure.nodes, estructure.elements, vm_nodal, title)
     
-    nodal_fields = compute_nodal_stress_strain(estructure.nodes, estructure.elements, estructure.u_global)   
+    #nodal_fields = compute_nodal_stress_strain(estructure.nodes, estructure.elements, estructure.u_global)   
     
-    plot_all_scalar_fields_separately(estructure.nodes, estructure.elements, nodal_fields, title)
-    plot_principal_fields(estructure.nodes, estructure.elements, estructure.u_global, title_prefix=title, sigma_y_tension=sigma_y_tension, sigma_y_compression=sigma_y_compression)
+    #plot_all_scalar_fields_separately(estructure.nodes, estructure.elements, nodal_fields, title)
+    #plot_principal_fields(estructure.nodes, estructure.elements, estructure.u_global, title_prefix=title, sigma_y_tension=sigma_y_tension, sigma_y_compression=sigma_y_compression)
