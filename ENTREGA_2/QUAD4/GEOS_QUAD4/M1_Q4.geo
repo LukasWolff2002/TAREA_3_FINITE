@@ -45,11 +45,21 @@ Plane Surface(4) = {4};
 // Hago transfinita cada superficie (global refinment)
 L_tot = 1000; //total
 h = 2; //Altura elemento: 2 - 1 - 0.5 - 0.25
-m = Round(L_tot/h); //Ctd divisiones
-Transfinite Curve {1, 9, 6} = m;
-Transfinite Curve {2,10,5} = m;
-Transfinite Curve {7,12,4} = m;
-Transfinite Curve {8,11,3} = m;
+b = 20;
+
+N = L_tot/h;
+h1 = (N*800)/1000;
+h2 = (N*200)/1000;
+
+B = 1000/b;
+
+b1 = (B*400)/1000;
+b2 = (B*600)/1000;
+
+Transfinite Curve {1, 9, 6} = b1;
+Transfinite Curve {2,10,5} =  b2; 
+Transfinite Curve {7,12,4} =  h1; //Altura Superior, jugar con este
+Transfinite Curve {8,11,3} =  h2; //Altura inferior, jugar con este
 
 Transfinite Surface {1};
 Transfinite Surface {2};
