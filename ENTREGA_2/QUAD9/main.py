@@ -441,9 +441,8 @@ def optimize_topology_iterative_n_extremes(P, grupos, elements, nodes, rho, estr
     
     return estructure
 
-def main(title, self_weight=True, Topologic_Optimization=False): 
+def main(title, output_file, self_weight=True, Topologic_Optimization=False): 
 
-    output_file = 'ENTREGA_2/QUAD9/Quad9.msh'
 
     E = 210e3  # MPa
     nu = 0.3
@@ -511,5 +510,15 @@ def main(title, self_weight=True, Topologic_Optimization=False):
         plot_von_mises_field(estructure.nodes, estructure.elements, vm_nodal, title+'_topo')
 
 if __name__ == "__main__":
-    title = "Quad9/results"
-    main(title, Topologic_Optimization=True)
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9/M1_Q9_2mm.msh"
+    main(title="Quad9/2mm_global/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9/M1_Q9_1.75mm.msh"
+    #main(title="Quad9/1.75mm_global/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9/M1_Q9_1.5mm.msh"
+    #main(title="Quad9/1.5mm_global/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9/M1_Q9_1.25mm.msh"
+    #main(title="Quad9/1.25mm_global/resultados", output_file=output_file, self_weight=True)
+    
