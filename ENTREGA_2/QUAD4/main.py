@@ -446,10 +446,10 @@ def optimize_topology_iterative_n_extremes(P, grupos, elements, nodes, rho, estr
         #===========================================
         #AGREGAR FUERZAS DISTRIBUIDAS
         nodos_fuerza = grupos["Fuerza_Y_1"]
-        apply_distributed_force(nodos_fuerza, fuerza_total_y=-120000, estructura=estructure)
+        apply_distributed_force(nodos_fuerza, fuerza_total_y=-1200000, estructura=estructure)
 
         nodos_fuerza = grupos["Fuerza_Y_2"]
-        apply_distributed_force(nodos_fuerza, fuerza_total_y=-30000, estructura=estructure)
+        apply_distributed_force(nodos_fuerza, fuerza_total_y=-300000, estructura=estructure)
         #===========================================
 
         estructure.solve()
@@ -523,10 +523,10 @@ def main(title, output_file, self_weight=True, Topologic_Optimization=False):
 
 
     nodos_fuerza = grupos["Fuerza_Y_1"]
-    apply_distributed_force(nodos_fuerza, fuerza_total_y=-120000, estructura=estructure)
+    apply_distributed_force(nodos_fuerza, fuerza_total_y=-1200000, estructura=estructure)
 
     nodos_fuerza = grupos["Fuerza_Y_2"]
-    apply_distributed_force(nodos_fuerza, fuerza_total_y=-30000, estructura=estructure)
+    apply_distributed_force(nodos_fuerza, fuerza_total_y=-300000, estructura=estructure)
 
     desplazamientos = estructure.solve()
 
@@ -554,7 +554,7 @@ def main(title, output_file, self_weight=True, Topologic_Optimization=False):
                     rho=rho,
                     estructure=estructure,
                     num_iterations=50,
-                    num_elements=100,        
+                    num_elements=50,        
                     delta_t=2,
                     t_min=1,
                     t_max=40,
@@ -572,16 +572,76 @@ def main(title, output_file, self_weight=True, Topologic_Optimization=False):
         vm_nodal = compute_nodal_von_mises(estructure.elements, estructure.u_global)
         plot_von_mises_field(estructure.nodes, estructure.elements, vm_nodal, title+'_topo')
         
+import os
+
+import os
+
+import os
+
+def verificar_paths(output_file, title):
+    """
+    Verifica existencia del archivo de malla y de los archivos esperados en la carpeta base de `title`.
+    La carpeta base esperada es 'GRAFICOS/<folder1>/<folder2>' según el formato de `title`.
+    """
+    partes = title.split("/")  # ["Quad9", "2mm_local", "resultados"]
+    if len(partes) < 2:
+        print(f"❌ Formato de title inválido: '{title}'")
+        return
+
+    carpeta_base = os.path.join("GRAFICOS", partes[0], partes[1])
+    print(f"\n🔍 Verificando: output_file='{output_file}'")
+    print(f"📁 Carpeta base esperada: '{carpeta_base}'")
+
+    # Verificar archivo de malla
+    if os.path.isfile(output_file):
+        print(f"✅ Archivo de malla encontrado: {output_file}")
+    else:
+        print(f"❌ Archivo de malla no encontrado: {output_file}")
+
+    # Verificar carpeta base en GRAFICOS/
+    if not os.path.isdir(carpeta_base):
+        print(f"❌ Carpeta '{carpeta_base}' no existe.")
+        return
+    else:
+        print(f"✅ Carpeta '{carpeta_base}' existe.")
+
+
+
 
 if __name__ == "__main__":
-    output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_2mm.msh"
+
+    # Global
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_2mm.msh",     "Quad4/2mm_global/resultados")
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_1.75mm.msh",  "Quad4/1.75mm_global/resultados")
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_1.5mm.msh",   "Quad4/1.5mm_global/resultados")
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_1.25mm.msh",  "Quad4/1.25mm_global/resultados")
+
+    # Local
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_2mm.msh",      "Quad4/2mm_local/resultados")
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_1.75mm.msh",   "Quad4/1.75mm_local/resultados")
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_1.5mm.msh",    "Quad4/1.5mm_local/resultados")
+    verificar_paths("ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_1.25mm.msh",   "Quad4/1.25mm_local/resultados")
+
+    output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_2mm.msh"
     main(title="Quad4/2mm_global/resultados", output_file=output_file, self_weight=True, Topologic_Optimization=True)
 
-    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_1.75mm.msh"
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_1.75mm.msh"
     #main(title="Quad4/1.75mm_global/resultados", output_file=output_file, self_weight=True)
 
-    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_1.5mm.msh"
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_1.5mm.msh"
     #main(title="Quad4/1.5mm_global/resultados", output_file=output_file, self_weight=True)
 
-    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4/M1_Q4_1.25mm.msh"
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_GLOBAL/M1_Q4_1.25mm.msh"
     #main(title="Quad4/1.25mm_global/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_2mm.msh"
+    #main(title="Quad4/2mm_local/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_1.75mm.msh"
+    #main(title="Quad4/1.75mm_local/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_1.5mm.msh"
+    #main(title="Quad4/1.5mm_local/resultados", output_file=output_file, self_weight=True)
+
+    #output_file = "ENTREGA_2/QUAD4/GEOS_QUAD4_LOCAL/M1_Q4_1.25mm.msh"
+    #main(title="Quad4/1.25mm_local/resultados", output_file=output_file, self_weight=True)

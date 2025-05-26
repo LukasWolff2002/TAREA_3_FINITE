@@ -1026,4 +1026,4 @@ def plot_results (estructure, elements, title, def_scale=1, force_scale=1e-2, re
     #nodal_fields = compute_nodal_stress_strain(estructure.nodes, estructure.elements, estructure.u_global)   
     
     #plot_all_scalar_fields_separately(estructure.nodes, estructure.elements, nodal_fields, title)
-    #plot_principal_fields(estructure.nodes, estructure.elements, estructure.u_global, title_prefix=title, sigma_y_tension=sigma_y_tension, sigma_y_compression=sigma_y_compression)
+    plot_principal_fields(estructure.nodes, estructure.elements, estructure.u_global, title_prefix=title, sigma_y_tension=sigma_y_tension, sigma_y_compression=sigma_y_compression)

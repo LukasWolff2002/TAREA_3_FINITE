@@ -1,0 +1,33 @@
+Titulo: Quad9/2mm_global/resultados
+Máximo: 240.86203539352277
+Mínimo: 6.934447746336862
+
+Titulo: Quad9/1.75mm_global/resultados
+Máximo: 265.56357195249865
+Mínimo: 5.410849423446647
+
+Titulo: Quad9/1.5mm_global/resultados
+Máximo: 288.52022640882495
+Mínimo: 4.262721381829794
+
+Titulo: Quad9/1.25mm_global/resultados
+Máximo: 317.2676615175872
+Mínimo: 3.26062869032717
+
+Titulo: Quad9/2mm_local/resultados
+Máximo: 268.64896928784833
+Mínimo: 4.59157718551575
+
+Titulo: Quad9/1.75mm_local/resultados
+Máximo: 305.4030124275421
+Mínimo: 3.2375929522353815
+
+Titulo: Quad9/1.5mm_local/resultados
+Máximo: 335.68664695561665
+Mínimo: 2.28452736035704
+
+Titulo: Quad9/1.25mm_local/resultados
+Máximo: 373.4007194655583
+Mínimo: 1.5262521710658272
+
+
