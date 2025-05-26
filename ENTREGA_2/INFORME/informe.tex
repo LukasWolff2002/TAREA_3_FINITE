@@ -104,7 +104,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\raisebox{0.20cm}{\textbf{Dynamics of structures}}}
-\fancyhead[R]{\raisebox{0.1cm}{\includegraphics[width=0.25\linewidth]{LOGO_UNIVERSIDAD.jpg}}}
+\fancyhead[R]{\raisebox{0.1cm}{\includegraphics[width=0.25\linewidth]{img/LOGO_UNIVERSIDAD.jpg}}}
 \fancyhead[C]{\rule{\textwidth}{0.6pt}}
 \fancyfoot[C]{\rule{\textwidth}{0.6pt}}
 \fancyfoot[R]{\raisebox{-1.5\baselineskip}{\thepage}}
@@ -132,7 +132,7 @@
 %----------------------------------------------------------------------------------------
 %	ENCABEZADO
 %----------------------------------------------------------------------------------------
-\includegraphics[width=10cm]{LOGO_UNIVERSIDAD.jpg}\\ % Si esta plantilla se copio correctamente, va a llevar la imagen del logo de la facultad.OBS: Es necesario incluir el paquete: graphicx
+\includegraphics[width=10cm]{img/LOGO_UNIVERSIDAD.jpg}\\ % Si esta plantilla se copio correctamente, va a llevar la imagen del logo de la facultad.OBS: Es necesario incluir el paquete: graphicx
 \vspace{3cm}
 %----------------------------------------------------------------------------------------
 %	SECCION DEL TITULO
@@ -189,36 +189,7 @@
 
 Over the course of this excercise, we have deepend our understanding of three core aspects. Comprehending the Quad4 and Quad9 elements, implementing desing and analysis of structures on GMSH \textit{software} and optimizing the strcutures depending on its internal stresses and displacements.
 
-\section{Results}
-
-As the complete stucture to analize was symmetrical, only a half of it was modeled with a transfinite mesh and studied, as shown bellow.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.3\textwidth]{geometria.png}
-    \caption{Half structure modeled in GMSH}
-    \label{fig:half_structure}
-\end{figure}
-
-The results of refining the mesh globally and locally are shown in the following figures.
-
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.35\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{refinado1.png}
-    \caption{Global mesh refinement}
-    \label{fig:img1}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.35\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{refinado2.png}
-    \caption{Local mesh refinement}
-    \label{fig:img2}
-  \end{subfigure}
-  \label{fig:dos_imagenes}
-\end{figure}
+\include{results}
 
 
 

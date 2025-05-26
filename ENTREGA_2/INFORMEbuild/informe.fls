@@ -309,6 +309,9 @@ INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux
+INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
+INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
+INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
 OUTPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ptm.cfg
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ptm.cfg
@@ -330,13 +333,13 @@ OUTPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.out
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.out
 OUTPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.out
-INPUT .\LOGO_UNIVERSIDAD.jpg
-INPUT .\LOGO_UNIVERSIDAD.jpg
-INPUT .\LOGO_UNIVERSIDAD.jpg
-INPUT .\LOGO_UNIVERSIDAD.jpg
-INPUT .\LOGO_UNIVERSIDAD.jpg
-INPUT .\LOGO_UNIVERSIDAD.jpg
-INPUT .\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
@@ -360,37 +363,184 @@ INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8t.tfm
-INPUT .\geometria.png
-INPUT .\geometria.png
-INPUT .\geometria.png
-INPUT .\geometria.png
-INPUT .\geometria.png
-INPUT .\geometria.png
-INPUT .\geometria.png
-INPUT .\refinado1.png
-INPUT .\refinado1.png
-INPUT .\refinado1.png
-INPUT .\refinado1.png
-INPUT .\refinado1.png
-INPUT .\refinado1.png
-INPUT .\refinado1.png
-INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
-INPUT .\refinado2.png
-INPUT .\refinado2.png
-INPUT .\refinado2.png
-INPUT .\refinado2.png
-INPUT .\refinado2.png
-INPUT .\refinado2.png
-INPUT .\refinado2.png
+INPUT .\results.tex
+INPUT .\results.tex
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri8t.vf
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
+OUTPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
+INPUT .\results.tex
+INPUT .\results.tex
+INPUT results.tex
+INPUT .\img\geometria.png
+INPUT .\img\geometria.png
+INPUT .\img\geometria.png
+INPUT .\img\geometria.png
+INPUT .\img\geometria.png
+INPUT .\img\geometria.png
+INPUT .\img\geometria.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omlztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omlztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omlztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7m.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7m.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7m.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omsztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omsztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omsztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7y.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7y.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7y.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omxztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omxztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omxztmcm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7v.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7v.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7v.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\2mm_global\resultados - sigma_1.png
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.75mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.5mm_global\resultados - sigma_1.png
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7m.vf
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\psyro.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7t.vf
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\symbol\psyr.tfm
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad4\1.25mm_global\resultados - sigma_1.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\2mm_global\resultados_von_mises.png
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.75mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.5mm_global\resultados_von_mises.png
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\GRAFICOS\Quad9\1.25mm_global\resultados_von_mises.png
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
+INPUT .\img\LOGO_UNIVERSIDAD.jpg
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux
+INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
+INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
+INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.out
 INPUT c:\Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.out
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\felip\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
