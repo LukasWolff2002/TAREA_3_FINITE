@@ -557,25 +557,24 @@ if __name__ == "__main__":
     output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_2mm.msh"
     main(title="Quad9/2mm_global/resultados", output_file=output_file, self_weight=True, Topologic_Optimization=True)
 
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_1.75mm.msh"
-    #main(title="Quad9/1.75mm_global/resultados", output_file=output_file, self_weight=True)
-#
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_1.5mm.msh"
-    #main(title="Quad9/1.5mm_global/resultados", output_file=output_file, self_weight=True)
-#
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_1.25mm.msh"
-    #main(title="Quad9/1.25mm_global/resultados", output_file=output_file, self_weight=True)
-#
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_2mm.msh"
-    #main(title="Quad9/2mm_local/resultados", output_file=output_file, self_weight=True)
-#
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_1.75mm.msh"
-    #main(title="Quad9/1.75mm_local/resultados", output_file=output_file, self_weight=True)
-#
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_1.5mm.msh"
-    #main(title="Quad9/1.5mm_local/resultados", output_file=output_file, self_weight=True)
-#
-    #output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_1.25mm.msh"
-    #main(title="Quad9/1.25mm_local/resultados", output_file=output_file, self_weight=True)
-    #
-#
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_1.75mm.msh"
+    main(title="Quad9/1.75mm_global/resultados", output_file=output_file, self_weight=True)
+
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_1.5mm.msh"
+    main(title="Quad9/1.5mm_global/resultados", output_file=output_file, self_weight=True)
+
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_GLOBAL/M1_Q9_1.25mm.msh"
+    main(title="Quad9/1.25mm_global/resultados", output_file=output_file, self_weight=True)
+
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_2mm.msh"
+    main(title="Quad9/2mm_local/resultados", output_file=output_file, self_weight=True)
+
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_1.75mm.msh"
+    main(title="Quad9/1.75mm_local/resultados", output_file=output_file, self_weight=True)
+
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_1.5mm.msh"
+    main(title="Quad9/1.5mm_local/resultados", output_file=output_file, self_weight=True)
+
+    output_file = "ENTREGA_2/QUAD9/GEOS_QUAD9_LOCAL/M1_Q9_1.25mm.msh"
+    main(title="Quad9/1.25mm_local/resultados", output_file=output_file, self_weight=True)
+    
