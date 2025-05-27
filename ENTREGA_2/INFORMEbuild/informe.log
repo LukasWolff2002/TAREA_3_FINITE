@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.16)  26 MAY 2025 02:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.16)  26 MAY 2025 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -822,6 +822,103 @@ LaTeX Warning: Label `fig:img23' multiply defined.
 
 LaTeX Warning: Label `sub@fig:img23' multiply defined.
 
+) (c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\anexos.aux
+
+LaTeX Warning: Label `fig:img1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img1' multiply defined.
+
+
+LaTeX Warning: Label `fig:img2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img2' multiply defined.
+
+
+LaTeX Warning: Label `fig:img11' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img11' multiply defined.
+
+
+LaTeX Warning: Label `fig:img21' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img21' multiply defined.
+
+
+LaTeX Warning: Label `fig:img12' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img12' multiply defined.
+
+
+LaTeX Warning: Label `fig:img22' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img22' multiply defined.
+
+
+LaTeX Warning: Label `fig:img13' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img13' multiply defined.
+
+
+LaTeX Warning: Label `fig:img23' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img23' multiply defined.
+
+
+LaTeX Warning: Label `fig:img1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img1' multiply defined.
+
+
+LaTeX Warning: Label `fig:img2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img2' multiply defined.
+
+
+LaTeX Warning: Label `fig:img11' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img11' multiply defined.
+
+
+LaTeX Warning: Label `fig:img21' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img21' multiply defined.
+
+
+LaTeX Warning: Label `fig:img12' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img12' multiply defined.
+
+
+LaTeX Warning: Label `fig:img22' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img22' multiply defined.
+
+
+LaTeX Warning: Label `fig:img13' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img13' multiply defined.
+
+
+LaTeX Warning: Label `fig:img23' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:img23' multiply defined.
+
 ))
 \openout1 = `informe.aux'.
 
@@ -926,7 +1023,7 @@ Package hyperref Info: Link coloring ON on input line 125.
 \openout4 = `informe.out'.
 
 \c@lstlisting=\count365
-<img/LOGO_UNIVERSIDAD.jpg, id=30, 682.9515pt x 247.6452pt>
+<img/LOGO_UNIVERSIDAD.jpg, id=46, 682.9515pt x 247.6452pt>
 File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use img/LOGO_UNIVERSIDAD.jpg>
 Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 135.
@@ -944,22 +1041,22 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.192 \include{results}
+l.200 \include{results}
                         [1]
 \openout2 = `results.aux'.
 
  (results.tex
-<img/geometria.png, id=46, 566.86781pt x 579.66562pt>
+<img/geometria.png, id=62, 566.86781pt x 579.66562pt>
 File: img/geometria.png Graphic file (type png)
 <use img/geometria.png>
-Package pdftex.def Info: img/geometria.png  used on input line 7.
+Package pdftex.def Info: img/geometria.png  used on input line 9.
 (pdftex.def)             Requested size: 221.78923pt x 226.79396pt.
-<GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png, id=48, 498.663pt x 469.755pt>
+<GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png, id=64, 504.9264pt x 465.6597pt>
 File: GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png Graphic file (type png)
 <use GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png  used on input line 30.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 31.
+Package pdftex.def Info: GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png  used on input line 32.
+(pdftex.def)             Requested size: 199.60895pt x 184.08632pt.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 33.
  (C:\Users\felip\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
@@ -967,132 +1064,296 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 33.
  (C:\Users\felip\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 33.
  (C:\Users\felip\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 33.
  (C:\Users\felip\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 31.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 33.
  (C:\Users\felip\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
-File: GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png Graphic file (type png)
-<use GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png  used on input line 37.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+<GRAFICOS/Quad4/2mm_local/resultados - sigma_1.png, id=65, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad4/2mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad4/2mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad4/2mm_local/resultados - sigma_1.png  used on input line 39.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
 
 
 File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use img/LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 42.
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 44.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
 [2
 
  <./img/geometria.png>]
-<GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png, id=56, 498.663pt x 469.755pt>
+<GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png, id=73, 504.9264pt x 465.6597pt>
 File: GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png Graphic file (type png)
 <use GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png  used on input line 47.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
-File: GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png Graphic file (type png)
-<use GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png  used on input line 54.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
-<GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png, id=57, 498.663pt x 469.755pt>
+Package pdftex.def Info: GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png  used on input line 49.
+(pdftex.def)             Requested size: 199.60895pt x 184.08632pt.
+<GRAFICOS/Quad4/1.75mm_local/resultados - sigma_1.png, id=74, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad4/1.75mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.75mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.75mm_local/resultados - sigma_1.png  used on input line 56.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+<GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png, id=75, 504.9264pt x 469.755pt>
 File: GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png Graphic file (type png)
 <use GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png  used on input line 64.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
-File: GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png Graphic file (type png)
-<use GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png  used on input line 71.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
+Package pdftex.def Info: GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png  used on input line 66.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+<GRAFICOS/Quad4/1.5mm_local/resultados - sigma_1.png, id=76, 504.9264pt x 465.6597pt>
+File: GRAFICOS/Quad4/1.5mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.5mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.5mm_local/resultados - sigma_1.png  used on input line 73.
+(pdftex.def)             Requested size: 199.60895pt x 184.08632pt.
 
 
 File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use img/LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 76.
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 78.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
-[3 <./GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png>]
-<GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png, id=69, 498.663pt x 469.755pt>
+[3 <./GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad4/2mm_local/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.75mm_local/resultados - sigma_1.png>]
+<GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png, id=91, 504.9264pt x 465.6597pt>
 File: GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png Graphic file (type png)
 <use GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png  used on input line 81.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
-File: GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png Graphic file (type png)
-<use GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png>
-Package pdftex.def Info: GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png  used on input line 88.
-(pdftex.def)             Requested size: 199.60895pt x 188.03487pt.
-<GRAFICOS/Quad9/2mm_global/resultados_von_mises.png, id=70, 498.1812pt x 465.6597pt>
-File: GRAFICOS/Quad9/2mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/2mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/2mm_global/resultados_von_mises.png  used on input line 102.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
-File: GRAFICOS/Quad9/2mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/2mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/2mm_global/resultados_von_mises.png  used on input line 109.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
+Package pdftex.def Info: GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png  used on input line 83.
+(pdftex.def)             Requested size: 199.60895pt x 184.08632pt.
+<GRAFICOS/Quad4/1.25mm_local/resultados - sigma_1.png, id=92, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad4/1.25mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.25mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.25mm_local/resultados - sigma_1.png  used on input line 90.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+<GRAFICOS/Quad9/2mm_global/resultados - sigma_1.png, id=93, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad9/2mm_global/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/2mm_global/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/2mm_global/resultados - sigma_1.png  used on input line 119.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+<GRAFICOS/Quad9/2mm_local/resultados - sigma_1.png, id=94, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad9/2mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/2mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/2mm_local/resultados - sigma_1.png  used on input line 126.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
 
 
 File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use img/LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 114.
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 131.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
-[4 <./GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png>]
-<GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png, id=80, 498.1812pt x 465.6597pt>
-File: GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png  used on input line 119.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
-File: GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png  used on input line 126.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
-<GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png, id=81, 498.1812pt x 465.6597pt>
-File: GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png  used on input line 136.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
-File: GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png  used on input line 143.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
+[4 <./GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.5mm_local/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad4/1.25mm_local/resultados - sigma_1.png>]
+<GRAFICOS/Quad9/1.75mm_global/resultados - sigma_1.png, id=108, 504.9264pt x 465.6597pt>
+File: GRAFICOS/Quad9/1.75mm_global/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.75mm_global/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.75mm_global/resultados - sigma_1.png  used on input line 136.
+(pdftex.def)             Requested size: 199.60895pt x 184.08632pt.
+<GRAFICOS/Quad9/1.75mm_local/resultados - sigma_1.png, id=109, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad9/1.75mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.75mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.75mm_local/resultados - sigma_1.png  used on input line 143.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+<GRAFICOS/Quad9/1.5mm_global/resultados - sigma_1.png, id=110, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad9/1.5mm_global/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.5mm_global/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.5mm_global/resultados - sigma_1.png  used on input line 153.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+<GRAFICOS/Quad9/1.5mm_local/resultados - sigma_1.png, id=111, 504.9264pt x 465.6597pt>
+File: GRAFICOS/Quad9/1.5mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.5mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.5mm_local/resultados - sigma_1.png  used on input line 160.
+(pdftex.def)             Requested size: 199.60895pt x 184.08632pt.
 
 
 File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use img/LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 148.
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 165.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
-[5 <./GRAFICOS/Quad9/2mm_global/resultados_von_mises.png> <./GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png>]
-<GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png, id=91, 498.1812pt x 465.6597pt>
+[5 <./GRAFICOS/Quad9/2mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad9/2mm_local/resultados - sigma_1.png> <./GRAFICOS/Quad9/1.75mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad9/1.75mm_local/resultados - sigma_1.png>]
+<GRAFICOS/Quad9/1.25mm_global/resultados - sigma_1.png, id=123, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad9/1.25mm_global/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.25mm_global/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.25mm_global/resultados - sigma_1.png  used on input line 170.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+<GRAFICOS/Quad9/1.25mm_local/resultados - sigma_1.png, id=124, 504.9264pt x 469.755pt>
+File: GRAFICOS/Quad9/1.25mm_local/resultados - sigma_1.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.25mm_local/resultados - sigma_1.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.25mm_local/resultados - sigma_1.png  used on input line 177.
+(pdftex.def)             Requested size: 199.60895pt x 185.7053pt.
+
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 202.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[6 <./GRAFICOS/Quad9/1.5mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad9/1.5mm_local/resultados - sigma_1.png> <./GRAFICOS/Quad9/1.25mm_global/resultados - sigma_1.png> <./GRAFICOS/Quad9/1.25mm_local/resultados - sigma_1.png>]
+<GRAFICOS/Quad4/2mm_global/resultados_espesor_post_topologic.png, id=142, 473.6094pt x 394.5942pt>
+File: GRAFICOS/Quad4/2mm_global/resultados_espesor_post_topologic.png Graphic file (type png)
+<use GRAFICOS/Quad4/2mm_global/resultados_espesor_post_topologic.png>
+Package pdftex.def Info: GRAFICOS/Quad4/2mm_global/resultados_espesor_post_topologic.png  used on input line 214.
+(pdftex.def)             Requested size: 221.78923pt x 184.79095pt.
+<GRAFICOS/Quad4/2mm_global/resultados_topo_von_mises_post_topologic.png, id=143, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad4/2mm_global/resultados_topo_von_mises_post_topologic.png Graphic file (type png)
+<use GRAFICOS/Quad4/2mm_global/resultados_topo_von_mises_post_topologic.png>
+Package pdftex.def Info: GRAFICOS/Quad4/2mm_global/resultados_topo_von_mises_post_topologic.png  used on input line 223.
+(pdftex.def)             Requested size: 221.78923pt x 204.73457pt.
+
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 227.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[7 <./GRAFICOS/Quad4/2mm_global/resultados_espesor_post_topologic.png>]
+<GRAFICOS/convergencia.png, id=154, 578.16pt x 433.62pt>
+File: GRAFICOS/convergencia.png Graphic file (type png)
+<use GRAFICOS/convergencia.png>
+Package pdftex.def Info: GRAFICOS/convergencia.png  used on input line 236.
+(pdftex.def)             Requested size: 221.78923pt x 166.3388pt.
+
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 247.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[8 <./GRAFICOS/Quad4/2mm_global/resultados_topo_von_mises_post_topologic.png> <./GRAFICOS/convergencia.png>])
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 200.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[9]
+\openout2 = `anexos.aux'.
+
+ (anexos.tex
+<GRAFICOS/Quad4/2mm_global/resultados_von_mises.png, id=169, 504.4446pt x 469.755pt>
+File: GRAFICOS/Quad4/2mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/2mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/2mm_global/resultados_von_mises.png  used on input line 9.
+(pdftex.def)             Requested size: 199.60895pt x 185.87733pt.
+<GRAFICOS/Quad4/2mm_local/resultados_von_mises.png, id=170, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad4/2mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/2mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/2mm_local/resultados_von_mises.png  used on input line 16.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+<GRAFICOS/Quad4/1.75mm_global/resultados_von_mises.png, id=171, 504.4446pt x 469.755pt>
+File: GRAFICOS/Quad4/1.75mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.75mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.75mm_global/resultados_von_mises.png  used on input line 26.
+(pdftex.def)             Requested size: 199.60895pt x 185.87733pt.
+<GRAFICOS/Quad4/1.75mm_local/resultados_von_mises.png, id=172, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad4/1.75mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.75mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.75mm_local/resultados_von_mises.png  used on input line 33.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+<GRAFICOS/Quad4/1.5mm_global/resultados_von_mises.png, id=173, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad4/1.5mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.5mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.5mm_global/resultados_von_mises.png  used on input line 43.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+<GRAFICOS/Quad4/1.5mm_local/resultados_von_mises.png, id=174, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad4/1.5mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.5mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.5mm_local/resultados_von_mises.png  used on input line 50.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 55.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[10
+
+
+
+ <./GRAFICOS/Quad4/2mm_global/resultados_von_mises.png> <./GRAFICOS/Quad4/2mm_local/resultados_von_mises.png> <./GRAFICOS/Quad4/1.75mm_global/resultados_von_mises.png> <./GRAFICOS/Quad4/1.75mm_local/resultados_von_mises.png>]
+<GRAFICOS/Quad4/1.25mm_global/resultados_von_mises.png, id=186, 504.4446pt x 469.755pt>
+File: GRAFICOS/Quad4/1.25mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.25mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.25mm_global/resultados_von_mises.png  used on input line 60.
+(pdftex.def)             Requested size: 199.60895pt x 185.87733pt.
+<GRAFICOS/Quad4/1.25mm_local/resultados_von_mises.png, id=187, 504.4446pt x 469.755pt>
+File: GRAFICOS/Quad4/1.25mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad4/1.25mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad4/1.25mm_local/resultados_von_mises.png  used on input line 67.
+(pdftex.def)             Requested size: 199.60895pt x 185.87733pt.
+<GRAFICOS/Quad9/2mm_global/resultados_von_mises.png, id=188, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad9/2mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/2mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/2mm_global/resultados_von_mises.png  used on input line 79.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+<GRAFICOS/Quad9/2mm_local/resultados_von_mises.png, id=189, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad9/2mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/2mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/2mm_local/resultados_von_mises.png  used on input line 86.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 91.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[11 <./GRAFICOS/Quad4/1.5mm_global/resultados_von_mises.png> <./GRAFICOS/Quad4/1.5mm_local/resultados_von_mises.png> <./GRAFICOS/Quad4/1.25mm_global/resultados_von_mises.png> <./GRAFICOS/Quad4/1.25mm_local/resultados_von_mises.png>]
+<GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png, id=201, 504.4446pt x 469.755pt>
+File: GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png  used on input line 96.
+(pdftex.def)             Requested size: 199.60895pt x 185.87733pt.
+<GRAFICOS/Quad9/1.75mm_local/resultados_von_mises.png, id=202, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad9/1.75mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.75mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.75mm_local/resultados_von_mises.png  used on input line 103.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+<GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png, id=203, 504.4446pt x 469.755pt>
+File: GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png  used on input line 113.
+(pdftex.def)             Requested size: 199.60895pt x 185.87733pt.
+<GRAFICOS/Quad9/1.5mm_local/resultados_von_mises.png, id=204, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad9/1.5mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.5mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.5mm_local/resultados_von_mises.png  used on input line 120.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+
+
+File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use img/LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 125.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+[12 <./GRAFICOS/Quad9/2mm_global/resultados_von_mises.png> <./GRAFICOS/Quad9/2mm_local/resultados_von_mises.png> <./GRAFICOS/Quad9/1.75mm_global/resultados_von_mises.png> <./GRAFICOS/Quad9/1.75mm_local/resultados_von_mises.png>]
+<GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png, id=217, 504.4446pt x 465.6597pt>
 File: GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png Graphic file (type png)
 <use GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png  used on input line 153.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
-File: GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png Graphic file (type png)
-<use GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png>
-Package pdftex.def Info: GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png  used on input line 160.
-(pdftex.def)             Requested size: 199.60895pt x 186.5803pt.
+Package pdftex.def Info: GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png  used on input line 130.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
+<GRAFICOS/Quad9/1.25mm_local/resultados_von_mises.png, id=218, 504.4446pt x 465.6597pt>
+File: GRAFICOS/Quad9/1.25mm_local/resultados_von_mises.png Graphic file (type png)
+<use GRAFICOS/Quad9/1.25mm_local/resultados_von_mises.png>
+Package pdftex.def Info: GRAFICOS/Quad9/1.25mm_local/resultados_von_mises.png  used on input line 137.
+(pdftex.def)             Requested size: 199.60895pt x 184.25685pt.
 )
 
 File: img/LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use img/LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 192.
+Package pdftex.def Info: img/LOGO_UNIVERSIDAD.jpg  used on input line 202.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
-[6 <./GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png> <./GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png>] (c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux (c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux))
+[13 <./GRAFICOS/Quad9/1.5mm_global/resultados_von_mises.png> <./GRAFICOS/Quad9/1.5mm_local/resultados_von_mises.png> <./GRAFICOS/Quad9/1.25mm_global/resultados_von_mises.png> <./GRAFICOS/Quad9/1.25mm_local/resultados_von_mises.png>] (c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.aux (c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\results.aux) (c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\anexos.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
@@ -1102,20 +1363,20 @@ L3 programming layer <2024-07-20>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 7CB1D47AED286FF036FAB12C1191A65B;794.
+(rerunfilecheck)             Checksum: D41115FFE57B8E3D5EA1F551FADD6769;1116.
  ) 
 Here is how much of TeX's memory you used:
- 28718 strings out of 473899
- 536715 string characters out of 5726499
- 1933960 words of memory out of 5000000
- 50967 multiletter control sequences out of 15000+600000
- 598782 words of font info for 145 fonts, out of 8000000 for 9000
+ 29078 strings out of 473899
+ 550654 string characters out of 5726499
+ 1935960 words of memory out of 5000000
+ 51227 multiletter control sequences out of 15000+600000
+ 611770 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,87p,1289b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.pdf" (7 pages, 1027418 bytes).
+ 84i,17n,87p,1289b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "c:/Users\felip\OneDrive\Escritorio\202510\Finite Elements\TAREA_3_FINITE\ENTREGA_2\INFORMEbuild\informe.pdf" (14 pages, 3884837 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 50805 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 270 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 60700 words of extra memory for PDF output out of 61914 (max. 10000000)
 

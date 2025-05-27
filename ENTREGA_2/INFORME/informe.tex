@@ -187,11 +187,19 @@
 %----------------------------------------------------------------------------------------
 \section{Introduction}
 
-Over the course of this excercise, we have deepend our understanding of three core aspects. Comprehending the Quad4 and Quad9 elements, implementing desing and analysis of structures on GMSH \textit{software} and optimizing the strcutures depending on its internal stresses and displacements.
+This report presents a comprehensive study of stress concentration effects in a steel plate with a geometric notch under axial tension. The main objective is to understand how mesh refinement strategies and element order impact the accuracy of stress predictions around critical regions prone to yielding. Using the finite element software Gmsh, the geometry was modeled with parametric control of mesh discretization, enabling the comparison of linear Quad4 and quadratic Quad9 elements. The mesh refinement was approached with two strategies: global uniform refinement and local targeted refinement near the stress concentration zone.
+
+A detailed stress analysis was performed for a series of mesh sizes starting from a characteristic element size of 2 mm, systematically reducing the mesh size to assess convergence of the maximum principal stress. Sixteen simulations were carried out in total, combining four mesh sizes and two refinement approaches for each element type. The results demonstrate the influence of mesh density and element formulation on capturing stress peaks accurately, highlighting the benefits of local refinement in computational efficiency without compromising precision.
+
+Finally, leveraging insights from the mesh convergence study, a structural optimization was proposed by strategically removing material to mitigate stress concentration effects. The optimized design achieved a more uniform stress distribution and a reduction in maximum principal stress, evidencing the practical value of coupling advanced mesh techniques with design improvements.
+
+This investigation consolidates key concepts in finite element modeling, mesh generation, and structural optimization, providing a valuable reference for the design of components subject to critical stress states.
+
+For more details on the programming, analysis and results, please refer to the following link: \href{https://github.com/LukasWolff2002/TAREA_3_FINITE}{GitHub Repository}.
 
 \include{results}
 
-
+\include{anexos}
 
 
 \end{document}
