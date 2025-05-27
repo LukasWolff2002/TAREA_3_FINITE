@@ -6,9 +6,21 @@ The complete thickness of the structure was defined as 20 mm. Also, the value b 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{img/geometria.png}
-    \caption{Half structure modeled in GMSH}
-    \label{fig:half_structure}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/geometria.png}
+        \caption{Half structure modeled in GMSH - Global refinement}
+        \label{fig:half_structure_global}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{GRAFICOS/local.png}
+        \caption{Half structure modeled in GMSH - Local refinement}
+        \label{fig:half_structure_local}
+    \end{subfigure}
+    \caption{Comparison of mesh refinement strategies}
+    \label{fig:mesh_comparison}
 \end{figure}
 
 \subsection{Part b)}
