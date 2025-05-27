@@ -2,7 +2,7 @@
 
 As the complete stucture to analize was symmetrical, only a half of it was modeled with a transfinite mesh and studied, as shown bellow.
 
-The complete thickness of the structure was defined as 20 mm.
+The complete thickness of the structure was defined as 20 mm. Also, the value b for the mesh width was $b=40mm$ to $h=20mm$, $b=35mm$ to $h=15mm$, $b=30mm$ to $h=12.5mm$ and $b=25mm$ to $h=10mm$. The mesh was generated with a transfinite mesh, which allows for a more controlled and structured mesh generation.
 
 \begin{figure}[H]
     \centering
@@ -15,7 +15,7 @@ The complete thickness of the structure was defined as 20 mm.
 
 In this section, a stress analysis was made over 4 different mesh sizes using two refinment techniques, global and local refinment, for both element types.
 
-For the global refinment, the characteristic size h was modified uniformly across the entire mesh, varying its value from 2 mm up to 1.25 mm. These values were determined based on the time required for the simulation to run and the capacity of the software to refine the mesh.
+For the global refinment, the characteristic size h was modified uniformly across the entire mesh, varying its value from 20 mm up to 10 mm. These values were determined based on the time required for the simulation to run and the capacity of the software to refine the mesh.
 
 In the case of local refinment, the characteristic size h was modified in a specific region of the mesh, near the stress concentration area, in other words, the right border. For this to be studied, the number of elements was higher in that zone compared to the left border.
 
@@ -30,14 +30,14 @@ The following maps shows how the stress distribution changes with the mesh size 
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/2mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=2mm$}
+    \caption{Global mesh refinement - $h=20mm$}
     \label{fig:img1}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/2mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=2mm$}
+    \caption{Local mesh refinement - $h=20mm$}
     \label{fig:img2}
   \end{subfigure}
 \end{figure}
@@ -47,14 +47,14 @@ The following maps shows how the stress distribution changes with the mesh size 
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/1.75mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=1.75mm$}
+    \caption{Global mesh refinement - $h=15mm$}
     \label{fig:img11}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/1.75mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=1.75mm$}
+    \caption{Local mesh refinement - $h=15mm$}
     \label{fig:img21}
   \end{subfigure}
 \end{figure}
@@ -64,14 +64,14 @@ The following maps shows how the stress distribution changes with the mesh size 
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/1.5mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=1.5mm$}
+    \caption{Global mesh refinement - $h=12.5mm$}
     \label{fig:img12}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/1.5mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=1.5mm$}
+    \caption{Local mesh refinement - $h=12.5mm$}
     \label{fig:img22}
   \end{subfigure}
 \end{figure}
@@ -81,14 +81,14 @@ The following maps shows how the stress distribution changes with the mesh size 
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/1.25mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=1.25mm$}
+    \caption{Global mesh refinement - $h=10mm$}
     \label{fig:img13}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad4/1.25mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=1.25mm$}
+    \caption{Local mesh refinement - $h=10mm$}
     \label{fig:img23}
   \end{subfigure}
 \end{figure}
@@ -100,10 +100,10 @@ The following maps shows how the stress distribution changes with the mesh size 
     \hline
     \multicolumn{3}{|c|}{$\sigma_{max} (MPa)$} \\ \hline
     $h$ (mm) & Global & Local \\ \hline
-    2 & 236.13 & 282.74 \\ \hline
-    1.75 & 260.26 & 320.69 \\ \hline
-    1.5 & 284.55 & 360.88 \\ \hline
-    1.25 & 313.78 & 409.92 \\ \hline
+    20 & 236.13 & 282.74 \\ \hline
+    15 & 260.26 & 320.69 \\ \hline
+    12.5 & 284.55 & 360.88 \\ \hline
+    10 & 313.78 & 409.92 \\ \hline
   \end{tabular}
   \label{tab:5x2}
 \end{table}
@@ -117,14 +117,14 @@ In this section, the same procedure was followed, but increasing the order of th
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/2mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=2mm$}
+    \caption{Global mesh refinement - $h=20mm$}
     \label{fig:img1}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/2mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=2mm$}
+    \caption{Local mesh refinement - $h=20mm$}
     \label{fig:img2}
   \end{subfigure}
 \end{figure}
@@ -134,14 +134,14 @@ In this section, the same procedure was followed, but increasing the order of th
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/1.75mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=1.75mm$}
+    \caption{Global mesh refinement - $h=15mm$}
     \label{fig:img11}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/1.75mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=1.75mm$}
+    \caption{Local mesh refinement - $h=15mm$}
     \label{fig:img21}
   \end{subfigure}
 \end{figure}
@@ -151,14 +151,14 @@ In this section, the same procedure was followed, but increasing the order of th
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/1.5mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=1.5mm$}
+    \caption{Global mesh refinement - $h=12.5mm$}
     \label{fig:img12}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/1.5mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=1.5mm$}
+    \caption{Local mesh refinement - $h=12.5mm$}
     \label{fig:img22}
   \end{subfigure}
 \end{figure}
@@ -168,14 +168,14 @@ In this section, the same procedure was followed, but increasing the order of th
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/1.25mm_global/resultados - sigma_1.png}
-    \caption{Global mesh refinement - $h=1.25mm$}
+    \caption{Global mesh refinement - $h=10mm$}
     \label{fig:img13}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{GRAFICOS/Quad9/1.25mm_local/resultados - sigma_1.png}
-    \caption{Local mesh refinement - $h=1.25mm$}
+    \caption{Local mesh refinement - $h=10mm$}
     \label{fig:img23}
   \end{subfigure}
 \end{figure}
@@ -187,10 +187,10 @@ In this section, the same procedure was followed, but increasing the order of th
     \hline
     \multicolumn{3}{|c|}{$\sigma_{max} (MPa)$} \\ \hline
     $h$ (mm) & Global & Local \\ \hline
-    2 & 240.86 & 268.64 \\ \hline
-    1.75 & 265.56 & 305.40 \\ \hline
-    1.5 & 288.52 & 335.68 \\ \hline
-    1.25 & 317.26 & 373.40 \\ \hline
+    20 & 240.86 & 268.64 \\ \hline
+    15 & 265.56 & 305.40 \\ \hline
+    12.5 & 288.52 & 335.68 \\ \hline
+    10 & 317.26 & 373.40 \\ \hline
   \end{tabular}
   \label{tab:12}
 \end{table}
@@ -238,7 +238,7 @@ The following graph, shows how the maximum principal stress converges with decre
     \label{fig:convergence}
 \end{figure}
 
-Because of the maximum limit of $h=2mm$, when simulating smaller mesh sizes, the processing time increases exponentially, for that reason the curves are not significally decreasing to a convergance. Adding to the analysis, we can observe that Quad4 elements converge faster when refining the mesh locally, while Quad9 has similar behaviour in both cases.
+Because of the maximum limit of $h=20mm$, when simulating smaller mesh sizes, the processing time increases exponentially, for that reason the curves are not significally decreasing to a convergance. Adding to the analysis, we can observe that Quad4 elements converge faster when refining the mesh locally, while Quad9 has similar behaviour in both cases.
 
 \section{Part d) - Essay}
 
